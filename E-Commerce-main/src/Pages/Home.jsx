@@ -104,7 +104,7 @@ console.log(data);
 
          </div>
 
-         <footer className="bg-gray-100 p-10">
+         <footer className="bg-gray-100 p-10 mb-5">
       {/* Top Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         {/* Fast, Free Shipping */}
