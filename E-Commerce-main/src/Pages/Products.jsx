@@ -1,23 +1,26 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 // import { Card,CardHeader,CardBody,Typography,Tooltip,CardFooter } from '@material-tailwind/react'
 import Navbar from '../MainComponent/Navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShippingFast, faUndoAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { Context } from '../App';
 
 
 function Products() {
-    const Navigate=useNavigate()
-    const [data,setData]=useState([])
-    const ProductDate = async () =>{
-        const Response= await axios.get("http://localhost:4000/datas")
-        setData(Response.data)
-    }
-    useEffect(()=>{
-        ProductDate()
-    },[])
+  const Navigate=useNavigate()
+    // const Navigate=useNavigate()
+    // const [data,setData]=useState([])
+    // const ProductDate = async () =>{
+    //     const Response= await axios.get("http://localhost:4000/datas")
+    //     setData(Response.data)
+    // }
+    // useEffect(()=>{
+    //     ProductDate()
+    // },[])
+    const {data}=useContext(Context)
     console.log(data);
   return (
     <div>
@@ -33,7 +36,7 @@ function Products() {
 
 <div className='p-2 bg-white mt-2 shadow-sm  cursor-pointer h-[350px] w-[300px] flex flex-col  rounded-lg'>
     <div className='overflow-hidden flex justify-center'>
-        <img className=' object-cover duration-150 transition-all hover:scale-110 overflow-hidden 
+        <img onClick={()=>Navigate(`/detail/${item.id}`)} className=' object-cover duration-150 transition-all hover:scale-110 overflow-hidden 
         h-[250px] w-[250px] rounded-lg
         ' src={item.img} alt="" />
     </div>

@@ -1,23 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShippingFast, faUndoAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { Context } from '../App';
 
 function Home() {
-  const [data,setData]=useState([])
-  const ProductData =async () =>{
-    const response = await axios.get("http://localhost:4000/datas")
-    const PopularItems = response.data.filter((item)=>item.type==="popular")
-  setData(PopularItems)
+  const Navigate=useNavigate()
+//   const [data,setData]=useState([])
+//   const ProductData =async () =>{
+//     const response = await axios.get("http://localhost:4000/datas")
+//     const PopularItems = response.data.filter((item)=>item.type==="popular")
+//   setData(PopularItems)
   
-  }
+//   }
   
-useEffect(()=>{
-  ProductData()
+// useEffect(()=>{
+//   ProductData()
   
-},[])
+// },[])
+
+const {data}=useContext(Context)
 console.log(data);
   
   return (
@@ -51,9 +55,9 @@ console.log(data);
           return(
 
 
-<div className='p-2 bg-white mt-2 shadow-sm  cursor-pointer h-[350px] w-[300px] flex flex-col  rounded-lg'>
+<div className='p-2 bg-white mt-2 shadow-sm   cursor-pointer h-[350px] w-[300px] flex flex-col  rounded-lg'>
     <div className='overflow-hidden flex justify-center'>
-        <img className=' object-cover duration-150 transition-all hover:scale-110 overflow-hidden 
+        <img onClick={()=>Navigate(`/detail/${item.id}`)} className=' object-cover duration-150 transition-all hover:scale-110 overflow-hidden 
         h-[250px] w-[250px] rounded-lg
         ' src={item.img} alt="" />
     </div>
@@ -81,7 +85,7 @@ console.log(data);
            <div>
            <img   src="https://www.converse.in/media/wysiwyg/july_15_homepage_1_.png?auto=webp&format=png&quality=85" alt="" />
            
-           <img className='cursor-pointer' src="https://www.converse.in/media/wysiwyg/oct11-12.png?auto=webp&format=png&quality=85" alt="" />  
+           <img  className='cursor-pointer' src="https://www.converse.in/media/wysiwyg/oct11-12.png?auto=webp&format=png&quality=85" alt="" />  
           
            </div>
           <img className='object-contain h-50 w-90' src="https://www.converse.in/media/wysiwyg/july_15_homepage_1.png?auto=webp&format=png&quality=85" alt="" />

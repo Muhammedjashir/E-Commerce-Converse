@@ -13,9 +13,9 @@ const Navbar = () => {
   }
   const[data,setData]=useState([])
   const OnChange =async (e)=>{
-    const Value=(e.target.value.toLowecase())
+    const Value=(e.target.value.toLowerCase())
     const Response = await axios.get('http://localhost:4000/datas')
-    setData (Response.data.filter((item)=> item.name.toLowecase().includes(Value)))
+    setData (Response.data.filter((item)=> item.name.toLowerCase().includes(Value)))
     
   }
   console.log(data);

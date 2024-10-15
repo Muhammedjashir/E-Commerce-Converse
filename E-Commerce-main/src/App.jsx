@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import MainComponent from "./MainComponent/MainComponent";
 import Register from "./Pages/Singup";
@@ -13,12 +13,29 @@ import Products from "./Pages/Products";
 import Men from "./Pages/Men";
 import Kids from "./Pages/Kids";
 import Women from "./Pages/Women";
+import DetailPage from "./Pages/DetailPage";
+import { useState,useEffect } from "react";
+import axios from "axios";
+export  const Context=createContext()
 function App() {
+  
+  const [data,setData]=useState([])
+  const ProductData =async () =>{
+    const response = await axios.get("http://localhost:4000/datas")
+    const PopularItems = response.data.filter((item)=>item.type==="popular")
+  setData(PopularItems)
+  
+  }
+  
+useEffect(()=>{
+  ProductData()
+  
+},[])
   return (
     <div>
       
         <ToastContainer/>
-      
+      <Context.Provider value={{data}}>
       <Routes>
         <Route path="/" element={<MainComponent />} />
         <Route path="/singup" element={<Singup />} />
@@ -28,6 +45,7 @@ function App() {
         <Route path="/men" element={<Men/>} />
         <Route path="/kids" element={<Kids/>}/>
         <Route path="/women" element={<Women/>}/>
+        <Route path="/detail/:id" element={<DetailPage/>} />
         {/* <Route path="/"
         element={
           <Routing>
@@ -36,7 +54,7 @@ function App() {
         } */}
         
       </Routes>
-    
+      </Context.Provider>
     </div>
   );
 }

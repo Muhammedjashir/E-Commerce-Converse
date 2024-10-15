@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import Navbar from '../MainComponent/Navbar'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShippingFast, faUndoAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { Context } from '../App';
 
 function Men() {
-    const [data,setData]=useState([])
-    const ProductDate = async () =>{
-        const Response= await axios.get("http://localhost:4000/datas")
-       const Menproduct= Response.data.filter((item)=>item.category==='men')
-       setData(Menproduct)
+  const Navigate=useNavigate()
+    // const [data,setData]=useState([])
+    // const ProductDate = async () =>{
+    //     const Response= await axios.get("http://localhost:4000/datas")
+    //    const Menproduct= Response.data.filter((item)=>item.category==='men')
+    //    setData(Menproduct)
 
-    }
+    // }
     
-    useEffect(()=>{
-        ProductDate()
-    },[])
+    // useEffect(()=>{
+    //     ProductDate()
+    // },[])
+    const {data}=useContext(Context)
     console.log(data);
   return (
     <div>
@@ -37,7 +40,7 @@ function Men() {
 
 <div className='p-2 bg-white mt-2 shadow-sm  cursor-pointer h-[350px] w-[300px] flex flex-col  rounded-lg'>
     <div className='overflow-hidden flex justify-center'>
-        <img className=' object-cover duration-150 transition-all hover:scale-110 overflow-hidden 
+        <img onClick={()=>Navigate(`/detail/${item.id}`)} className=' object-cover duration-150 transition-all hover:scale-110 overflow-hidden 
         h-[250px] w-[250px] rounded-lg
         ' src={item.img} alt="" />
     </div>
