@@ -32,7 +32,7 @@ const Payment = () => {
   return (
     <div>
         <Navbar/>
-    <form onSubmit={handleSubmit} className="container mx-auto p-8 bg-gray-100">
+    <form onSubmit={handleSubmit} className="container mx-auto p-8 bg-gray-100 mt-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Form Section */}
         <div>

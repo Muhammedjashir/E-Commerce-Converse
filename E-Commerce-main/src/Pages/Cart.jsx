@@ -71,7 +71,7 @@ function Cart() {
               
              </div>
              <div className='flex justify-between mt-20 mb-5 '>
-              <button onClick={()=>Navigate('/payment')} className='p-1 bg-black text-white rounded hover:bg-white hover:text-black'>Buy Now</button>
+             
 
                <button onClick={()=>RemoveItem(item.id)} className='p-1 bg-black text-white rounded hover:bg-red-900'>Remove</button>
               
