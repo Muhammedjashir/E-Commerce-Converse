@@ -65,7 +65,7 @@ console.log(data);
         <div className='font-bold '>    {item.name}</div>
        <div className='flex justify-between'>
        <div className=' font-bold text-gray-300'>{item.brand}</div>
-        <div className='text-black font-bold'>    {item.price}</div>
+        <div className='text-black font-bold'> Price:   {item.price}</div>
        </div>
     </div>
 </div>

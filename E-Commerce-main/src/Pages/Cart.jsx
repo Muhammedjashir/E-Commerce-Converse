@@ -144,7 +144,7 @@ function Cart() {
 
             <div className="flex justify-between">
               <p>Price:</p>
-              <p> {item.price} </p>
+              <p> {item.price*item.qty} </p>
             </div>
 
             {/* <div className="flex justify-between">
