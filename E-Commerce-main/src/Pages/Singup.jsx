@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+
 function Signup() {
   const navigate = useNavigate();
 
@@ -32,10 +33,15 @@ function Signup() {
       alert('Passwords do not match');
       return;
     }
+    const NewUser={
+      ...formData,
+      cart:[]
 
+
+    }
     
     axios
-      .post('http://localhost:4000/users', formData) 
+      .post('http://localhost:4000/users', NewUser) 
       .then((response) => {
         console.log('Signup Success:', response.data);
         toast.success('Signup successful! Please Singin.');
@@ -117,7 +123,7 @@ function Signup() {
 
         <button
           type="submit"
-          className="w-full bg-gray-950 text-white p-2 rounded hover:bg-white hover:text-black transition duration-300 font-bold"
+          className="w-full bg-gray-950 bg-black text-white p-2 rounded hover:bg-white hover:text-black transition duration-300 font-bold"
         >
           CREATE AN ACCOUNT
         </button>

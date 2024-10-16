@@ -16,13 +16,14 @@ import Women from "./Pages/Women";
 import DetailPage from "./Pages/DetailPage";
 import { useState,useEffect } from "react";
 import axios from "axios";
+import Cart from "./Pages/Cart";
 export  const Context=createContext()
 function App() {
   
   const [data,setData]=useState([])
   const ProductData =async () =>{
     const response = await axios.get("http://localhost:4000/datas")
-    const PopularItems = response.data.filter((item)=>item.type==="popular")
+    const PopularItems = response.data
   setData(PopularItems)
   
   }
@@ -46,6 +47,7 @@ useEffect(()=>{
         <Route path="/kids" element={<Kids/>}/>
         <Route path="/women" element={<Women/>}/>
         <Route path="/detail/:id" element={<DetailPage/>} />
+        <Route path="/cart" element={<Cart/>} />
         {/* <Route path="/"
         element={
           <Routing>

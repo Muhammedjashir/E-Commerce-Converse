@@ -9,18 +9,18 @@ import { Context } from '../App';
 
 function Men() {
   const Navigate=useNavigate()
-    // const [data,setData]=useState([])
-    // const ProductDate = async () =>{
-    //     const Response= await axios.get("http://localhost:4000/datas")
-    //    const Menproduct= Response.data.filter((item)=>item.category==='men')
-    //    setData(Menproduct)
+    const [data,setData]=useState([])
+    const ProductDate = async () =>{
+        const Response= await axios.get("http://localhost:4000/datas")
+       const Menproduct= Response.data.filter((item)=>item.category==='men')
+       setData(Menproduct)
 
-    // }
+    }
     
-    // useEffect(()=>{
-    //     ProductDate()
-    // },[])
-    const {data}=useContext(Context)
+    useEffect(()=>{
+        ProductDate()
+    },[])
+    // const {data}=useContext(Context)
     console.log(data);
   return (
     <div>

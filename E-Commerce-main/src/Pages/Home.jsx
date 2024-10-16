@@ -8,20 +8,20 @@ import { Context } from '../App';
 
 function Home() {
   const Navigate=useNavigate()
-//   const [data,setData]=useState([])
-//   const ProductData =async () =>{
-//     const response = await axios.get("http://localhost:4000/datas")
-//     const PopularItems = response.data.filter((item)=>item.type==="popular")
-//   setData(PopularItems)
+  const [data,setData]=useState([])
+  const ProductData =async () =>{
+    const response = await axios.get("http://localhost:4000/datas")
+    const PopularItems = response.data.filter((item)=>item.type==="popular")
+  setData(PopularItems)
   
-//   }
+  }
   
-// useEffect(()=>{
-//   ProductData()
+useEffect(()=>{
+  ProductData()
   
-// },[])
+},[])
 
-const {data}=useContext(Context)
+// const {data}=useContext(Context)
 console.log(data);
   
   return (
@@ -36,7 +36,7 @@ console.log(data);
      
      <div>
       <div>
-        <img className='bg-no-repeat h-[57.9vh] object-cover ' src="https://www.converse.in/media/wysiwyg/27septhomepage-04.png?auto=webp&format=png&quality=85" alt="" />
+        <img onClick={()=>Navigate('/product')} className='bg-no-repeat h-[57.9vh] object-cover ' src="https://www.converse.in/media/wysiwyg/27septhomepage-04.png?auto=webp&format=png&quality=85" alt="" />
         </div>
         <div >
           <img  className ='h-[74.7vh] object-cover' src="https://www.converse.in/media/wysiwyg/27septhomepage-05.png?auto=webp&format=png&quality=85" alt="" />

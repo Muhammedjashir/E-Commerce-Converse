@@ -1,82 +1,75 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
-import Navbar from '../MainComponent/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShippingFast, faUndoAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import Navbar from '../MainComponent/Navbar';
 import { toast } from 'react-toastify';
 
-function DetailPage() {
-    const Navigate=useNavigate()
-    const {id}=useParams()
+function Cart() {
+    const [cart,setCart]=useState([])
+    const id=localStorage.getItem("id")
     console.log(id);
-    const [data,setData]=useState([])
-    const ids =localStorage.getItem("id")
-    const ProductData = async ()=>{
-        const Response = await axios.get("http://localhost:4000/datas")
-        const DetailPage=Response.data.filter((item)=>item.id===id)
-        console.log(DetailPage);
-        setData(DetailPage)
+    const ProductData= async ()=>{
+        const Respons = await axios.get(`http://localhost:4000/users/${id}`)
+        const CartPage= Respons.data.cart
+        setCart(CartPage)
     }
     useEffect(()=>{
         ProductData()
     },[])
+    console.log(cart);
 
-    const AddtoCart = async (data)=>{
-        const Res = await axios.get(`http://localhost:4000/users/${ids}`)
-        const UserCart = Res.data.cart
-        const CheckData  =  UserCart.find((item)=>item.id===data.id)
-        if(CheckData){
-            toast.warning('Product already exist')
-        }else{
-            const UpCart=[...UserCart,data]
-           const res=await axios.patch(`http://localhost:4000/users/${ids}`,{cart:UpCart})
-           toast.success('added to cart')
-           console.log(res.data);
-        }
+    const RemoveItem =async (ids) =>{
+
+    const dlt=cart.filter((item)=>item.id!==ids)
+    await axios.patch(`http://localhost:4000/users/${id}`,{cart:dlt})
+    toast.success("Item Removed")
+    ProductData()
     }
-console.log(ids);
+    
   return (
-    
+
     <div>
+
 <Navbar/>
+ 
+            <div className='bg-gray-100 grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1  place-items-center   '>
+            {
+              cart.map((item)=>{
+                return(
+      
+      
+      <div className='p-2 bg-white mt-2 shadow-sm   cursor-pointer h-[350px] w-[300px] flex flex-col  rounded-lg'>
+          <div className='overflow-hidden flex justify-center'>
+              <img onClick={()=>Navigate(`/detail/${item.id}`)} className=' object-cover duration-150 transition-all hover:scale-110 overflow-hidden 
+              h-[250px] w-[250px] rounded-lg
+              ' src={item.img} alt="" />
+          </div>
+          <div className='flex flex-col gap-2 mt-2 ml-4 mr-4'>
+              <div className='font-bold '>    {item.name}</div>
+             <div className='flex justify-between'>
+             <div className=' font-bold text-gray-300'>{item.brand}</div>
+              <div className='text-black font-bold'>    {item.price}</div>
 
-<div className='  h-[100%] grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1  place-items-center   '>
-      {
-        data.map((item)=>{
-          return(
+             
+              
+             </div>
+             <div className='flex justify-between '>
 
+              <button className='p-1 bg-black text-white rounded hover:bg-white hover:text-black'>Buy Now</button>
 
-<div className=' p-2 bg-gray-100 mt-2 shadow-sm  cursor-pointer h-[350px] w-[300px] flex flex-col  rounded-lg'>
-    <div className='overflow-hidden flex justify-center'>
-        <img className=' object-cover duration-150 transition-all hover:scale-110 overflow-hidden 
-        h-[250px] w-[250px] rounded-lg
-        ' src={item.img} alt="" />
-    </div>
-    <div className='flex flex-col gap-2 mt-2 ml-4 mr-4'>
-        <div className='font-bold '>    {item.name}</div>
-       <div className='flex justify-between'>
-       <div className=' font-bold text-gray-300'>{item.brand}</div>
-        <div className='text-black font-bold'>    {item.price}</div>
+               <button onClick={()=>RemoveItem(item.id)} className='p-1 bg-black text-white rounded hover:bg-red-900'>Remove</button>
+               </div>
+          </div>
+      </div>
+                )
+              })
+            }
+           
+           </div >
         
-        
-            <button onClick={()=>AddtoCart(item)} className='bg-black border border-white text-white rounded p-1 hover:bg-white hover:text-black'>Add to Cart</button>
-        
-
-       </div>
-    </div>
-</div>
-
-
-
-          )
-        })
-      }
-    
-
-     </div>    
-     <footer className="bg-gray-100 p-10 mb-5 mt-5">
+           <footer className="bg-gray-100 p-10 mb-5 mt-5">
       {/* Top Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
       
@@ -133,9 +126,11 @@ console.log(ids);
       </div>
     </footer>
 
-
+ 
+        
+      
     </div>
   )
 }
 
-export default DetailPage
+export default Cart

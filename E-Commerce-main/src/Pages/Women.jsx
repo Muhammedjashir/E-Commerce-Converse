@@ -9,18 +9,18 @@ import { Context } from '../App';
 
 function Women() {
   const Navigate=useNavigate()
-    // const [data,setData]=useState([])
-    // const ProductData = async ()=>{
-    //     const Response = await axios.get("http://localhost:4000/datas")
-    //     const WomenProduct = Response.data.filter((item)=>item.category==='women')
-    //     setData(WomenProduct)
-    // }
+    const [data,setData]=useState([])
+    const ProductData = async ()=>{
+        const Response = await axios.get("http://localhost:4000/datas")
+        const WomenProduct = Response.data.filter((item)=>item.category==='women')
+        setData(WomenProduct)
+    }
 
-    // useEffect(()=>{
-    //     ProductData()
-    // },[])
-    // console.log(data);
-    const {data}=useContext(Context)
+    useEffect(()=>{
+        ProductData()
+    },[])
+    console.log(data);
+    // const {data}=useContext(Context)
   return (
     <div>
 

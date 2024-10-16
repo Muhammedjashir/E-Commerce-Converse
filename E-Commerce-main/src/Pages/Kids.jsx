@@ -8,17 +8,17 @@ import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free
 import { Context } from '../App';
 function Kids() {
   const Navigate=useNavigate()
-//     const [data,setData]=useState([])
-//     const ProductData =async ()=>{
-//     const Response = await axios.get("http://localhost:4000/datas")
-//     const Kidsproduct = Response.data.filter((item)=>item.category==='kids')
-//     setData(Kidsproduct)
-// }
-// useEffect(()=>{
-//     ProductData()
-// },[])
-const {data}=useContext(Context)
-console.log(data);
+    const [data,setData]=useState([])
+    const ProductData =async ()=>{
+    const Response = await axios.get("http://localhost:4000/datas")
+    const Kidsproduct = Response.data.filter((item)=>item.category==='kids')
+    setData(Kidsproduct)
+}
+useEffect(()=>{
+    ProductData()
+},[])
+
+
   return (
     <div>
 

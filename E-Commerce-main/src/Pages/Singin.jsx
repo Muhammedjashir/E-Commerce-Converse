@@ -27,6 +27,7 @@ function Singin() {
           if(!find_user){
             toast.error("User not found")
           }else{
+            localStorage.setItem('id',find_user.id)
             toast.success("singin succesfully")
             navigate('/')
           }
@@ -72,7 +73,7 @@ function Singin() {
 
         <button
           type="submit"
-          className="w-full bg-gray-950 text-white p-2 rounded hover:bg-white hover:text-black font-bold transition duration-300"
+          className=" bg-black w-full bg-gray-950 text-white p-2 rounded hover:bg-white hover:text-black font-bold transition duration-300"
         >
           SIGN IN
         </button>

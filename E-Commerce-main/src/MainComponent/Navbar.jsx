@@ -8,9 +8,6 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartItems,setCartItems]=useState(0)
   const Navigate=useNavigate()
-  const addToCart = () =>{
-    setCartItems(cartItems+1)
-  }
   const[data,setData]=useState([])
   const OnChange =async (e)=>{
     const Value=(e.target.value.toLowerCase())
@@ -129,7 +126,7 @@ const Navbar = () => {
  {/* Cart Icon */}
  <div className="relative flex items-center ">
           <button
-            onClick={addToCart} // Simulate adding to cart
+            onClick={()=>Navigate('/cart')} // Simulate adding to cart
             className="text-gray-600 hover:text-white px-4 py-2 rounded hover:bg-black"
           >
             <FontAwesomeIcon icon={faShoppingCart} className="h-6 w-6" />
