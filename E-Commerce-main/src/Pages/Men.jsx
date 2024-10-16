@@ -17,7 +17,7 @@ function Men() {
 
     }
     
-    useEffect(()=>{
+    useEffect(()=> {
         ProductDate()
     },[])
     // const {data}=useContext(Context)
