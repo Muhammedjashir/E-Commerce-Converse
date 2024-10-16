@@ -27,7 +27,7 @@ console.log(data);
   return (
     <div >
       
-      <div  className='cursor-pointer'>
+      <div  className='cursor-pointer mt-1'>
       
       <img   src="https://www.converse.in/media/wysiwyg/Website_Banner_6.png?auto=webp&format=png&quality=85" alt="" />
      <h1 className='px-4 text-3xl font-bold '>Inspired By The Summer Games</h1>
