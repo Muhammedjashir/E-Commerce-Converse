@@ -9,7 +9,7 @@ import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free
 import { Context } from '../App';
 
 
-function Products() {
+function Products(){
   const Navigate=useNavigate()
     // const Navigate=useNavigate()
     // const [data,setData]=useState([])
