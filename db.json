@@ -73,19 +73,6 @@
       "cpassword": "Jachu123@",
       "cart": [
         {
-          "id": "2",
-          "name": "Converse x Transformers Chunk Tylor All Star Decepticons ",
-          "price": "$6,499",
-          "img": "https://www.converse.in/media/catalog/product/a/1/a11658c_c_08x1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
-          "cart": "",
-          "category": "men",
-          "type": "popular",
-          "brand": "Converse",
-          "stock": 30,
-          "rating": 4.7,
-          "qty": 1
-        },
-        {
           "id": "3",
           "name": "Converse x Transformers Tylor All Star BB Shift CX ",
           "price": "$9,9999",
@@ -96,7 +83,7 @@
           "brand": "Converse",
           "stock": 25,
           "rating": 4.8,
-          "qty": 1
+          "qty": 0
         },
         {
           "id": "10",
