@@ -5,8 +5,10 @@ import { faShippingFast, faUndoAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import Navbar from '../MainComponent/Navbar';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
+    const Navigate=useNavigate()
     // const [count,setCount]=useState(0)
     const [cart,setCart]=useState([])
     const id=localStorage.getItem("id")
@@ -69,7 +71,7 @@ function Cart() {
               
              </div>
              <div className='flex justify-between mt-20 mb-5 '>
-              <button className='p-1 bg-black text-white rounded hover:bg-white hover:text-black'>Buy Now</button>
+              <button onClick={()=>Navigate('/payment')} className='p-1 bg-black text-white rounded hover:bg-white hover:text-black'>Buy Now</button>
 
                <button onClick={()=>RemoveItem(item.id)} className='p-1 bg-black text-white rounded hover:bg-red-900'>Remove</button>
               

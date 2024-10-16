@@ -83,7 +83,7 @@
           "brand": "Converse",
           "stock": 30,
           "rating": 4.7,
-          "qty": 12
+          "qty": 1
         },
         {
           "id": "3",
@@ -96,7 +96,7 @@
           "brand": "Converse",
           "stock": 25,
           "rating": 4.8,
-          "qty": 2
+          "qty": 1
         }
       ]
     }
