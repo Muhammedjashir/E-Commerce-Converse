@@ -17,6 +17,7 @@ import DetailPage from "./Pages/DetailPage";
 import { useState,useEffect } from "react";
 import axios from "axios";
 import Cart from "./Pages/Cart";
+import Payment from "./Pages/Payment";
 export  const Context=createContext()
 function App() {
   
@@ -48,6 +49,7 @@ useEffect(()=>{
         <Route path="/women" element={<Women/>}/>
         <Route path="/detail/:id" element={<DetailPage/>} />
         <Route path="/cart" element={<Cart/>} />
+        <Route path="/payment" element={<Payment/>}/>
         {/* <Route path="/"
         element={
           <Routing>
