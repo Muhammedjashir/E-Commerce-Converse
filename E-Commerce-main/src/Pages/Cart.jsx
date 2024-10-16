@@ -15,7 +15,7 @@ function Cart() {
         const CartPage= Respons.data.cart
         setCart(CartPage)
     }
-    useEffect(()=>{
+    useEffect(()=> {
         ProductData()
     },[])
     console.log(cart);
