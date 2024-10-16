@@ -9,7 +9,7 @@ const Navbar = () => {
   const [cartItems,setCartItems]=useState(0)
   const Navigate=useNavigate()
   const[data,setData]=useState([])
-  const OnChange =async (e)=>{
+  const OnChange =async (e)=> {
     const Value=(e.target.value.toLowerCase())
     const Response = await axios.get('http://localhost:4000/datas')
     setData (Response.data.filter((item)=> item.name.toLowerCase().includes(Value)))
