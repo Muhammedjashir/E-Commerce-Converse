@@ -34,13 +34,13 @@ function Cart() {
 
 <Navbar/>
  
-            <div className='bg-gray-100 grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1  place-items-center   '>
+            <div className=' flex justify-center flex-wrap   md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1  place-items-center   '>
             {
               cart.map((item)=>{
                 return(
       
       
-      <div className='p-2 bg-white mt-2 shadow-sm   cursor-pointer h-[350px] w-[300px] flex flex-col  rounded-lg'>
+      <div className='p-2 m-5  bg-gray-100 mt-5 shadow-sm  cursor-pointer h-[450px] w-[500px] flex flex-col  rounded-lg'>
           <div className='overflow-hidden flex justify-center'>
               <img onClick={()=>Navigate(`/detail/${item.id}`)} className=' object-cover duration-150 transition-all hover:scale-110 overflow-hidden 
               h-[250px] w-[250px] rounded-lg
@@ -55,7 +55,7 @@ function Cart() {
              
               
              </div>
-             <div className='flex justify-between '>
+             <div className='flex justify-between mt-20 mb-5 '>
 
               <button className='p-1 bg-black text-white rounded hover:bg-white hover:text-black'>Buy Now</button>
 

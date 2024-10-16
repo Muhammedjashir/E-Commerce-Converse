@@ -31,7 +31,6 @@
           "stock": 30,
           "rating": 4.7
         },
-        
         {
           "id": "21",
           "name": "Converse x Isable Marant Chunk 70 ",
@@ -72,7 +71,80 @@
       "email": "kadhijafarhana3@gmail.com",
       "password": "Jachu123@",
       "cpassword": "Jachu123@",
-      "cart": []
+      "cart": [
+        {
+          "id": "7",
+          "name": "Chunk Taylor All Star ",
+          "price": "$4,299",
+          "img": "https://www.converse.in/media/catalog/product/m/9/m9160c_02_1_1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
+          "cart": "",
+          "category": "men",
+          "type": "popular",
+          "brand": "Converse",
+          "stock": 20,
+          "rating": 4.7
+        },
+        {
+          "id": "21",
+          "name": "Converse x Isable Marant Chunk 70 ",
+          "price": "$12,499",
+          "img": "https://www.converse.in/media/catalog/product/a/1/a10799c_c_08x1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
+          "cart": "",
+          "category": "women",
+          "type": "popular",
+          "brand": "Converse",
+          "stock": 40,
+          "rating": 4.9
+        },
+        {
+          "id": "27",
+          "name": "Chunk Taylor All Star Platform ",
+          "price": "$5,999",
+          "img": "https://www.converse.in/media/catalog/product/a/0/a07561c_03.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
+          "cart": "",
+          "category": "women",
+          "type": "popular",
+          "brand": "Converse",
+          "stock": 35,
+          "rating": 4.8
+        },
+        {
+          "id": "41",
+          "name": "Chunk Taylor All Star Kids ",
+          "price": "$2,999",
+          "img": "https://www.converse.in/media/catalog/product/3/j/3j235c_02_1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
+          "cart": "",
+          "category": "kids",
+          "type": "best-seller",
+          "brand": "Converse",
+          "stock": 70,
+          "rating": 4.8
+        },
+        {
+          "id": "33",
+          "name": "Chunk Taylor All Star Lift Platform Sketch Kids",
+          "price": "$3,999",
+          "img": "https://www.converse.in/media/catalog/product/a/0/a08468c_c_08x1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
+          "cart": "",
+          "category": "kids",
+          "type": "best-seller",
+          "brand": "Converse",
+          "stock": 70,
+          "rating": 4.8
+        },
+        {
+          "id": "34",
+          "name": "Pro Blaze Easy-on Kids",
+          "price": "$3,699",
+          "img": "https://www.converse.in/media/catalog/product/a/0/a08474c_c_08x1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
+          "cart": "",
+          "category": "kids",
+          "type": "best-seller",
+          "brand": "Converse",
+          "stock": 70,
+          "rating": 4.8
+        }
+      ]
     }
   ],
   "datas": [
