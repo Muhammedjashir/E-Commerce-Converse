@@ -16,7 +16,7 @@ function Women() {
         setData(WomenProduct)
     }
 
-    useEffect(()=>{
+    useEffect(()=> {
         ProductData()
     },[])
     console.log(data);
