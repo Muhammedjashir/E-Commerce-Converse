@@ -7,6 +7,7 @@ import Navbar from '../MainComponent/Navbar';
 import { toast } from 'react-toastify';
 
 function Cart() {
+    // const [count,setCount]=useState(0)
     const [cart,setCart]=useState([])
     const id=localStorage.getItem("id")
     console.log(id);
@@ -26,6 +27,18 @@ function Cart() {
     await axios.patch(`http://localhost:4000/users/${id}`,{cart:dlt})
     toast.success("Item Removed")
     ProductData()
+    }
+    const increment =async (ide) =>{
+    const incrCart = cart.map((item)=>item.id===ide?{...item,qty:item.qty+1}:item)
+    await axios.patch(`http://localhost:4000/users/${id}`,{cart:incrCart} )
+    ProductData()
+
+    }
+    
+        const decrement =async (ide) =>{
+            const decreCart = cart.map((item)=>item.id===ide?{...item,qty:item.qty-1}:item)
+            await axios.patch(`http://localhost:4000/users/${id}`,{cart:decreCart} )
+            ProductData()
     }
     
   return (
@@ -56,12 +69,28 @@ function Cart() {
               
              </div>
              <div className='flex justify-between mt-20 mb-5 '>
-
               <button className='p-1 bg-black text-white rounded hover:bg-white hover:text-black'>Buy Now</button>
 
                <button onClick={()=>RemoveItem(item.id)} className='p-1 bg-black text-white rounded hover:bg-red-900'>Remove</button>
+              
                </div>
+               
+             <div className='flex  '>
+              
+             
+<button onClick={()=>increment(item.id)} className='bg-black text-white hover:bg-green-700  rounded pl-2 pr-2 '>+</button>
+        
+<h1  className='text-black  ml-2 mr-2'>{item?.qty}</h1>
+          
+         
+<button onClick={()=>decrement(item.id)} className='bg-black text-white hover:bg-red-900  rounded pl-2 pr-2 '>-</button>
+</div>
           </div>
+
+          <div>
+          
+          </div>
+         
       </div>
                 )
               })
