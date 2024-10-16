@@ -24,7 +24,7 @@ function Singin() {
         try {
           const response = await axios.get('http://localhost:4000/users')
           const find_user = response.data.find((item)=>item.email==formData.email&&item.password==formData.password)
-          if(!find_user){
+          if(!find_user) {
             toast.error("User not found")
           }else{
             localStorage.setItem('id',find_user.id)
