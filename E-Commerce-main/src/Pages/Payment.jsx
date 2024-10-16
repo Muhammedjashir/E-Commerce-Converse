@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../MainComponent/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShippingFast, faUndoAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
+import axios from 'axios';
+
 const Payment = () => {
+    const [pCart,setPCart]=useState([])
+    const ids=localStorage.getItem("id")
   const [formData, setFormData] = useState({
     email: '',
     firstName: '',
@@ -28,7 +32,17 @@ const Payment = () => {
     console.log('Form Data Submitted: ', formData);
     //  form validation 
   };
+ 
+  
+  const ProductData=async()=>{
+    const Response = await axios.get(`http://localhost:4000/users/${ids}`)
+    setPCart( Response.data.cart)
 
+  }
+  useEffect(()=>{
+    ProductData()
+  },[])
+console.log(pCart);
   return (
     <div>
         <Navbar/>
@@ -165,29 +179,27 @@ const Payment = () => {
 
         {/* Order Summary */}
         <div className="border p-4 rounded shadow">
-          <h2 className="text-lg font-bold mb-4">Order summary</h2>
+        <h2 className="text-lg font-bold mb-4">Order summary</h2>
+        {pCart.map((item)=>{
+                return(
+                    <div>   
+            
+          
           <div className="flex justify-between mb-4">
             <div>
-              <p>Basic Tee (Black, Large)</p>
-              <p>$32.00</p>
+              <p>{item.name}</p>
+              
             </div>
-            <img src="path-to-black-tee-image" alt="Basic Tee Black" width="50" />
+            <img src={item.img} alt="Basic Tee Black" width="50" />
           </div>
 
-          <div className="flex justify-between mb-4">
-            <div>
-              <p>Basic Tee (Sienna, Large)</p>
-              <p>$32.00</p>
-            </div>
-            <img src="path-to-sienna-tee-image" alt="Basic Tee Sienna" width="50" />
-          </div>
 
           <div className="flex justify-between">
-            <p>Subtotal</p>
-            <p>$64.00</p>
+            <p>Price:</p>
+            <p>{item.price}</p>
           </div>
 
-          <div className="flex justify-between">
+          {/* <div className="flex justify-between">
             <p>Shipping</p>
             <p>{formData.deliveryMethod === 'standard' ? '$5.00' : '$16.00'}</p>
           </div>
@@ -195,11 +207,16 @@ const Payment = () => {
           <div className="flex justify-between">
             <p>Taxes</p>
             <p>$5.52</p>
-          </div>
+          </div> */}
 
           <hr className="my-4" />
 
-          <div className="flex justify-between font-bold">
+          
+       
+</div>
+                )
+            })}
+            <div className="flex justify-between font-bold">
             <p>Total</p>
             <p>
               $
@@ -208,12 +225,12 @@ const Payment = () => {
                 : (64 + 16 + 5.52).toFixed(2)}
             </p>
           </div>
-        </div>
+         </div>
       </div>
 
       <div className="text-right mt-8">
         <button type="submit" className="bg-black text-white hover:bg-white hover:text-black px-6 py-2 rounded">
-          Confirm Order
+          Place Order
         </button>
       </div>
     </form>
