@@ -23,7 +23,7 @@ function DetailPage() {
         ProductData()
     },[])
 
-    const AddtoCart = async (data)=>{
+    const AddtoCart = async (data)=> {
         const Res = await axios.get(`http://localhost:4000/users/${ids}`)
         const UserCart = Res.data.cart
         const CheckData  =  UserCart.find((item)=>item.id===data.id)
