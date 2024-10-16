@@ -14,7 +14,7 @@ function Kids() {
     const Kidsproduct = Response.data.filter((item)=>item.category==='kids')
     setData(Kidsproduct)
 }
-useEffect(()=>{
+useEffect(()=> {
     ProductData()
 },[])
 

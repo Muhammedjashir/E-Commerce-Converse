@@ -9,7 +9,7 @@ import { Context } from '../App';
 function Home() {
   const Navigate=useNavigate()
   const [data,setData]=useState([])
-  const ProductData =async () =>{
+  const ProductData =async () => {
     const response = await axios.get("http://localhost:4000/datas")
     const PopularItems = response.data.filter((item)=>item.type==="popular")
   setData(PopularItems)
