@@ -84,6 +84,19 @@
           "stock": 25,
           "rating": 4.8,
           "qty": 1
+        },
+        {
+          "id": "7",
+          "name": "Chunk Taylor All Star ",
+          "price": 4299,
+          "img": "https://www.converse.in/media/catalog/product/m/9/m9160c_02_1_1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
+          "cart": "",
+          "category": "men",
+          "type": "popular",
+          "brand": "Converse",
+          "stock": 20,
+          "rating": 4.7,
+          "qty": 1
         }
       ]
     }

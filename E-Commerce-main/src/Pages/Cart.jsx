@@ -50,10 +50,7 @@ function Cart() {
     await axios.patch(`http://localhost:4000/users/${id}`, { cart: decreCart });
     ProductData();
   };
-  const Addtopay = (idss) =>{
-    
-
-  }
+  const sum=cart.reduce((acc,item)=>acc+item.price*item.qty,0)
 
   return (
     <div>
@@ -160,22 +157,25 @@ function Cart() {
             </div> */}
 
             <hr className="my-4" />
+           
 
             </div>
         
             )
          })}
-         <div className="flex justify-between font-bold">
+        
+        <div className="flex justify-between font-bold">
          <p>Total</p>
               <p>
                 $
-                {formData.deliveryMethod === "standard"
+                {/* {formData.deliveryMethod === "standard"
                   ? (64 + 5 + 5.52).toFixed(2)
-                  : (64 + 16 + 5.52).toFixed(2)}
+                  : (64 + 16 + 5.52).toFixed(2)} */}
+                  {sum}
               </p>
               </div>
          
-      <button onClick={()=>Addtopay()} className="bg-black text-white hover:bg-white hover:text-black rounded p-1 ">Palce Order</button>
+      <button onClick={()=>Navigate('/payment')} className="bg-black text-white hover:bg-white hover:text-black rounded p-1 mt-5 ">Proceed to Pay</button>
 
          </div>
          
