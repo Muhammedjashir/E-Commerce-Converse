@@ -3,13 +3,13 @@ import Navbar from '../MainComponent/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShippingFast, faUndoAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
 
 const Payment = () => {
-    
+    const Navigat=useNavigate()
     const Location=useLocation()
     const {sum}=Location.state
     const {cart}=Location.state
@@ -30,8 +30,10 @@ const Payment = () => {
   });
 
   const handleInputChange = (e) => {
+console.log("e",e.target.name);
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData,[name]:value});
+    console.log(formData);
   };
 
   const handleSubmit =async (e) => {
@@ -41,8 +43,10 @@ const Payment = () => {
     //  form validation 
     const Response = await axios.get(`http://localhost:4000/users/${ids}`)
     console.log(Response.data);
+    console.log(formData);
     const Order=Response.data.Orders
     const orderr=[...Order,formData]
+    console.log(orderr);
     
 
 
@@ -50,7 +54,8 @@ const Payment = () => {
        await axios.patch(`http://localhost:4000/users/${ids}`,{Orders:orderr})
 
         toast.success('Payment Successfull')
-
+        
+        Navigat("/orders")
     }else{
         toast.warning("Errorrrr!")
         
@@ -257,7 +262,9 @@ console.log(pCart);
       </div>
 
       <div className="text-right mt-8">
-        <button type="submit" className="bg-black text-white hover:bg-white hover:text-black px-6 py-2 rounded">
+        <button 
+        // onClick={()=>Navigat('/orders')}
+         type="submit" className="bg-black text-white hover:bg-white hover:text-black px-6 py-2 rounded">
           Place Order
         </button>
       </div>

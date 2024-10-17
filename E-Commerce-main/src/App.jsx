@@ -18,6 +18,7 @@ import { useState,useEffect } from "react";
 import axios from "axios";
 import Cart from "./Pages/Cart";
 import Payment from "./Pages/Payment";
+import Orders from "./Pages/Orders";
 export  const Context=createContext()
 function App() {
   
@@ -50,6 +51,7 @@ useEffect(()=>{
         <Route path="/detail/:id" element={<DetailPage/>} />
         <Route path="/cart" element={<Cart/>} />
         <Route path="/payment" element={<Payment/>}/>
+        <Route path="/orders" element={<Orders/>}/>
         {/* <Route path="/"
         element={
           <Routing>
