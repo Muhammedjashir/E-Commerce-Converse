@@ -21,20 +21,29 @@ function Orders() {
 
       {/* <h1 className='flex justify-center text-5xl mt-2'>Your Orders</h1> */}
 
-      <div className="   p-2 bg-gray-100 mt-2 shadow-sm  cursor-pointer h-[100%] w-[100%] flex flex-col  rounded-lg">
+      <div className=" p-2 bg-gray-100 mt-2 shadow-sm  cursor-pointer h-[100%] w-[100%] flex flex-col rounded-lg">
         <div className="border p-4 rounded shadow">
-          <h2 className="text-lg font-bold mb-4">Order summary</h2>
+          <h2 className=" font-bold mb-4 text-4xl mt-2">Order summary</h2>
 
-          <div className="flex">
+          <div className="">
             {data.map((item) => {
               return (
-                <div>
-                  <h1>{item.email}</h1>
+                <div className="flex justify-between">
+                    <div>
+                  <h1>Email: {item.email}</h1>
+                  <h1>Name:  {item.firstName} {item.lastName} </h1>
+                  <h1>Address: {item.address} </h1>
+                  <h1>Number:  {item.phone} </h1>
+                  <h1>Card Name:  {item.nameOnCard} </h1>
+                  <h1>Card Number:  {item.cardNumber} </h1>
+                  </div>
                   <div>
                   {item.orderItem.map((value) => {
                     return (
-                      <div>
+                        <div className="h-[100%] w-[100%]">
+                      <div className=" object-cover h-[350px] w-[500px]">
                         <img src={value.img} alt="" />
+                      </div>
                       </div>
                     );
                   })}
