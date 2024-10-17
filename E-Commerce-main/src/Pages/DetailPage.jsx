@@ -64,7 +64,7 @@ console.log(ids);
        </div>
        <div className='flex justify-between mt-5 mb-2'>
             <button onClick={()=>AddtoCart(item)} className='bg-black border border-white text-white rounded p-1 hover:bg-white hover:text-black'>Add to Cart</button>
-            <button onClick={()=>Navigate('/payment')} className='p-1 bg-black text-white rounded hover:bg-white hover:text-black'>Buy Now</button>
+            {/* <button onClick={()=>Navigate('/payment')} className='p-1 bg-black text-white rounded hover:bg-white hover:text-black'>Buy Now</button> */}
             </div>
     </div>
 </div>

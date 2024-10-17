@@ -35,7 +35,8 @@ function Signup() {
     }
     const NewUser={
       ...formData,
-      cart:[]
+      cart:[],
+      Orders:[]
 
 
     }

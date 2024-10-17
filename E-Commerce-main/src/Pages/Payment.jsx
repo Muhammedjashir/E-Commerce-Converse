@@ -3,10 +3,16 @@ import Navbar from '../MainComponent/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShippingFast, faUndoAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
 
 const Payment = () => {
+    
+    const Location=useLocation()
+    const {sum}=Location.state
+    const {cart}=Location.state
     const [pCart,setPCart]=useState([])
     const ids=localStorage.getItem("id")
   const [formData, setFormData] = useState({
@@ -20,6 +26,7 @@ const Payment = () => {
     nameOnCard: '',
     expirationDate: '',
     cvc: '',
+    orderItem:cart
   });
 
   const handleInputChange = (e) => {
@@ -27,15 +34,32 @@ const Payment = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
     console.log('Form Data Submitted: ', formData);
+
     //  form validation 
+    const Response = await axios.get(`http://localhost:4000/users/${ids}`)
+    console.log(Response.data);
+    const Order=Response.data.Orders
+    const orderr=[...Order,formData]
+    
+
+
+    if(orderr){
+       await axios.patch(`http://localhost:4000/users/${ids}`,{Orders:orderr})
+
+        toast.success('Payment Successfull')
+
+    }else{
+        toast.warning("Errorrrr!")
+        
+    }
+    
   };
  
   
   const ProductData=async()=>{
-    const Response = await axios.get(`http://localhost:4000/users/${ids}`)
     setPCart( Response.data.cart)
 
   }
@@ -43,6 +67,9 @@ const Payment = () => {
     ProductData()
   },[])
 console.log(pCart);
+
+
+
   return (
     <div>
         <Navbar/>
@@ -180,7 +207,7 @@ console.log(pCart);
         {/* Order Summary */}
         <div className="border p-4 rounded shadow">
         <h2 className="text-lg font-bold mb-4">Order summary</h2>
-        {pCart.map((item)=>{
+        {cart.map((item)=>{
                 return(
                     <div>   
             
@@ -196,7 +223,7 @@ console.log(pCart);
 
           <div className="flex justify-between">
             <p>Price:</p>
-            <p>{item.price}</p>
+            <p>{item.price*item.qty}</p>
           </div>
 
           {/* <div className="flex justify-between">
@@ -220,9 +247,10 @@ console.log(pCart);
             <p>Total</p>
             <p>
               $
-              {formData.deliveryMethod === 'standard'
+              {/* {formData.deliveryMethod === 'standard'
                 ? (64 + 5 + 5.52).toFixed(2)
-                : (64 + 16 + 5.52).toFixed(2)}
+                : (64 + 16 + 5.52).toFixed(2)} */}
+                {sum}
             </p>
           </div>
          </div>

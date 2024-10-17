@@ -175,7 +175,7 @@ function Cart() {
               </p>
               </div>
          
-      <button onClick={()=>Navigate('/payment')} className="bg-black text-white hover:bg-white hover:text-black rounded p-1 mt-5 ">Proceed to Pay</button>
+      <button onClick={()=>Navigate('/payment',{state:{sum,cart}})} className="bg-black text-white hover:bg-white hover:text-black rounded p-1 mt-5 ">Proceed to Pay</button>
 
          </div>
          
