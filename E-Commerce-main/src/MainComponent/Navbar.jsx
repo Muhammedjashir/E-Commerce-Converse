@@ -5,6 +5,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 const Navbar = () => {
+  const Idee=localStorage.getItem("id")
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartItems,setCartItems]=useState(0)
   const Navigate=useNavigate()
@@ -15,7 +16,13 @@ const Navbar = () => {
     setData (Response.data.filter((item)=> item.name.toLowerCase().includes(Value)))
     
   }
+
+
   console.log(data);
+
+  const SingOut = () =>{
+    localStorage.clear("id")
+  }
 
   return (
     <nav className=" sticky z-[1] w-[100%]  top-0 flex items-center justify-between flex-wrap bg-white py-0 lg:px-6 shadow border-solid border-t-2 border-gray-200 ">
@@ -149,8 +156,8 @@ const Navbar = () => {
             
             </div> */}
           <div className=" block text-md px-4 ml-2 py-2 rounded text-gray-600 font-bold hover:text-white mt-4 hover:bg-black lg:mt-0"
->
-          <button onClick={()=>Navigate("/singin")}>SING IN</button>
+>         {Idee? <button onClick={()=>{Navigate("/singin"),SingOut()}}>SING OUT</button>:<button onClick={()=>Navigate("/singin")}>SING IN</button>}
+          
           
          
             

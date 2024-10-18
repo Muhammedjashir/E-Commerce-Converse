@@ -22,17 +22,24 @@ function DetailPage() {
     },[])
 
     const AddtoCart = async (data)=> {
-        const Res = await axios.get(`http://localhost:4000/users/${ids}`)
-        const UserCart = Res.data.cart
-        const CheckData  =  UserCart.find((item)=>item.id===data.id)
-        if(CheckData){
-            toast.warning('Product already exist')
+        if(ids){
+ 
+            const Res = await axios.get(`http://localhost:4000/users/${ids}`)
+            const UserCart = Res.data.cart
+            const CheckData  =  UserCart.find((item)=>item.id===data.id)
+            if(CheckData){
+                toast.warning('Product already exist')
+            }else{
+                const UpCart=[...UserCart,data]
+               const res=await axios.patch(`http://localhost:4000/users/${ids}`,{cart:UpCart})
+               toast.success('added to cart')
+               console.log(res.data);
+            }
         }else{
-            const UpCart=[...UserCart,data]
-           const res=await axios.patch(`http://localhost:4000/users/${ids}`,{cart:UpCart})
-           toast.success('added to cart')
-           console.log(res.data);
+            toast.warning("Please Login!")
+            Navigate('/singin')
         }
+       
     }
 console.log(ids);
   return (
@@ -61,6 +68,7 @@ console.log(ids);
        
        </div>
        <div className='flex justify-between mt-5 mb-2'>
+        
             <button onClick={()=>AddtoCart(item)} className='bg-black border border-white text-white rounded p-1 hover:bg-white hover:text-black'>Add to Cart</button>
             {/* <button onClick={()=>Navigate('/payment')} className='p-1 bg-black text-white rounded hover:bg-white hover:text-black'>Buy Now</button> */}
             </div>

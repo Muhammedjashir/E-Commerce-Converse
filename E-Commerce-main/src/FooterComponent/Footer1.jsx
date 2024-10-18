@@ -7,9 +7,9 @@ function Footer1() {
   return (
     <div>
       
-      <footer className="bg-gray-100 p-10 mb-5">
+      <footer className="bg-gray-100 p-10 mb-5 mt-1">
       {/* Top Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center ">
       
         
        

@@ -1,133 +1,13 @@
 {
   "users": [
     {
-      "id": "c041",
+      "id": "f814",
       "username": "Jashirmhd",
       "email": "jashirmhd71@icloud.com",
       "password": "JashirT@2000",
       "cpassword": "JashirT@2000",
-      "cart": [
-        {
-          "id": "7",
-          "name": "Chunk Taylor All Star ",
-          "price": 4299,
-          "img": "https://www.converse.in/media/catalog/product/m/9/m9160c_02_1_1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
-          "cart": "",
-          "category": "men",
-          "type": "popular",
-          "brand": "Converse",
-          "stock": 20,
-          "rating": 4.7,
-          "qty": 1
-        },
-        {
-          "id": "12",
-          "name": "Run Star Hike Canvase Platform",
-          "price": 6999,
-          "img": "https://www.converse.in/media/catalog/product/1/6/166800c_02.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
-          "cart": "",
-          "category": "men",
-          "type": "featured",
-          "brand": "Converse",
-          "stock": 8,
-          "rating": 5,
-          "qty": 1
-        },
-        {
-          "id": "34",
-          "name": "Pro Blaze Easy-on Kids",
-          "price": 3699,
-          "img": "https://www.converse.in/media/catalog/product/a/0/a08474c_c_08x1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
-          "cart": "",
-          "category": "kids",
-          "type": "best-seller",
-          "brand": "Converse",
-          "stock": 70,
-          "rating": 4.8,
-          "qty": 1
-        },
-        {
-          "id": "20",
-          "name": "Converse x Isable Marant Chunk 70 ",
-          "price": 11499,
-          "img": "https://www.converse.in/media/catalog/product/a/1/a10800c_c_08x1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
-          "cart": "",
-          "category": "women",
-          "type": "best-seller",
-          "brand": "Converse",
-          "stock": 70,
-          "rating": 4.8,
-          "qty": 1
-        }
-      ],
-      "Orders": [
-        {
-          "email": "jashirmhd71@icloud.com",
-          "firstName": "Jashir",
-          "lastName": "T",
-          "address": "kinfra kakkanchery",
-          "phone": "7356490668",
-          "deliveryMethod": "standard",
-          "cardNumber": "",
-          "nameOnCard": "",
-          "expirationDate": "",
-          "cvc": "",
-          "orderItem": [
-            {
-              "id": "7",
-              "name": "Chunk Taylor All Star ",
-              "price": 4299,
-              "img": "https://www.converse.in/media/catalog/product/m/9/m9160c_02_1_1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
-              "cart": "",
-              "category": "men",
-              "type": "popular",
-              "brand": "Converse",
-              "stock": 20,
-              "rating": 4.7,
-              "qty": 1
-            },
-            {
-              "id": "12",
-              "name": "Run Star Hike Canvase Platform",
-              "price": 6999,
-              "img": "https://www.converse.in/media/catalog/product/1/6/166800c_02.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
-              "cart": "",
-              "category": "men",
-              "type": "featured",
-              "brand": "Converse",
-              "stock": 8,
-              "rating": 5,
-              "qty": 1
-            },
-            {
-              "id": "34",
-              "name": "Pro Blaze Easy-on Kids",
-              "price": 3699,
-              "img": "https://www.converse.in/media/catalog/product/a/0/a08474c_c_08x1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
-              "cart": "",
-              "category": "kids",
-              "type": "best-seller",
-              "brand": "Converse",
-              "stock": 70,
-              "rating": 4.8,
-              "qty": 1
-            },
-            {
-              "id": "20",
-              "name": "Converse x Isable Marant Chunk 70 ",
-              "price": 11499,
-              "img": "https://www.converse.in/media/catalog/product/a/1/a10800c_c_08x1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
-              "cart": "",
-              "category": "women",
-              "type": "best-seller",
-              "brand": "Converse",
-              "stock": 70,
-              "rating": 4.8,
-              "qty": 1
-            }
-          ]
-        }
-      ]
+      "cart": [],
+      "Orders": []
     }
   ],
   "datas": [

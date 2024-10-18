@@ -51,8 +51,6 @@ function Women() {
     </div>
 </div>
 
-
-
           )
         })
       }
