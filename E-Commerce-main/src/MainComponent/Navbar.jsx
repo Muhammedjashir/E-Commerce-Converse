@@ -143,11 +143,11 @@ const Navbar = () => {
         {/* Sign In and Login */}
         
         <div className="flex cursor-pointer" >
-          <div className="block text-md px-4 py-2 rounded text-gray-600 ml-2 font-bold hover:text-white mt-4 hover:bg-black lg:mt-0"
+          {/* <div className="block text-md px-4 py-2 rounded text-gray-600 ml-2 font-bold hover:text-white mt-4 hover:bg-black lg:mt-0"
 >
             <button onClick={()=>Navigate("/singup")}>SING UP</button>
             
-            </div>
+            </div> */}
           <div className=" block text-md px-4 ml-2 py-2 rounded text-gray-600 font-bold hover:text-white mt-4 hover:bg-black lg:mt-0"
 >
           <button onClick={()=>Navigate("/singin")}>SING IN</button>
