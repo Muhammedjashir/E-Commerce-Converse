@@ -36,7 +36,7 @@ function DetailPage() {
                console.log(res.data);
             }
         }else{
-            toast.warning("Please Login!")
+            toast.warning("Please Singin!")
             Navigate('/singin')
         }
        

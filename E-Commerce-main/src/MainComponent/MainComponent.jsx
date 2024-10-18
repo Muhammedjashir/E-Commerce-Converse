@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "./Navbar";
-import Login from "../Pages/Singin";
-import Register from "../Pages/Singup";
+import Login from "../LoginComponent/Singin";
+import Register from "../LoginComponent/Singup";
 import { Routes, Route } from "react-router-dom";
-import Home from "../Pages/Home";
+import Home from "../PagesComponent/Home";
 import axios from 'axios'
 
 
