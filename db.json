@@ -1,6 +1,69 @@
 {
   "users": [
-
+    {
+      "id": "883a",
+      "username": "JashirT",
+      "email": "jashirmhd71@icloud.com",
+      "password": "JashirT@2000",
+      "cpassword": "JashirT@2000",
+      "cart": [
+        {
+          "id": "7",
+          "name": "Chunk Taylor All Star ",
+          "price": 4299,
+          "img": "https://www.converse.in/media/catalog/product/m/9/m9160c_02_1_1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
+          "cart": "",
+          "category": "men",
+          "type": "popular",
+          "brand": "Converse",
+          "stock": 20,
+          "rating": 4.7,
+          "qty": 3
+        },
+        {
+          "id": "17",
+          "name": "Run Star Hike Platform Sketch",
+          "price": 7499,
+          "img": "https://www.converse.in/media/catalog/product/a/1/a10421c_c_08x1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
+          "cart": "",
+          "category": "women",
+          "type": "best-seller",
+          "brand": "Converse",
+          "stock": 100,
+          "rating": 4.7,
+          "qty": 1
+        }
+      ],
+      "Orders": [
+        {
+          "email": "jashirmhd71@icloud.com",
+          "firstName": "Jashir",
+          "lastName": "T",
+          "address": "kinfra kakkanchery",
+          "phone": "7356490668",
+          "deliveryMethod": "standard",
+          "cardNumber": "ugegahdsh",
+          "nameOnCard": "uigehagdsuhig",
+          "expirationDate": "ejdfgsuhdfg",
+          "cvc": "uheifgadus",
+          "orderItem": [
+            {
+              "id": "7",
+              "name": "Chunk Taylor All Star ",
+              "price": 4299,
+              "img": "https://www.converse.in/media/catalog/product/m/9/m9160c_02_1_1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=1200&width=960&auto=webp&format=pjpg",
+              "cart": "",
+              "category": "men",
+              "type": "popular",
+              "brand": "Converse",
+              "stock": 20,
+              "rating": 4.7,
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    }
   ],
   "datas": [
     {
