@@ -16,6 +16,7 @@ import axios from "axios";
 import Cart from "./SearchAndDetails/Cart";
 import Payment from "./SearchAndDetails/Payment"
 import Orders from "./SearchAndDetails/Orders"
+import AdminHome from "./Admin/AdminHome";
 export  const Context=createContext()
 function App() {
   
@@ -55,9 +56,17 @@ useEffect(()=>{
             <Navigator/>
           </Routing>
         } */}
+
+
+        {/* Admin */}
+
+       <Route path="/admin" element={<AdminHome/>}/>
+
         
       </Routes>
       </Context.Provider>
+
+
     </div>
   );
 }

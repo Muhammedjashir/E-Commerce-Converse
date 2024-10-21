@@ -27,11 +27,15 @@ function Singin() {
           if(!find_user) {
             toast.error("User not found Please Create an a Account")
             navigate('/singup')
-          }else{
+          }else if(find_user.Admin==true){
+             navigate('/admin')
+             toast.success("Admin Login succesfully")
+          } else{
             localStorage.setItem('id',find_user.id)
             toast.success("singin succesfully")
             navigate('/')
           }
+         
       
         } catch (error) {
           
