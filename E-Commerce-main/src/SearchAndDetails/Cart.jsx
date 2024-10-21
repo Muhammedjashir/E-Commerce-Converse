@@ -1,11 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {
-  faFacebook,
-  faInstagram,
-  faTwitter,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
 import Navbar from "../MainComponent/Navbar";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -13,20 +7,18 @@ import Footer1 from "../FooterComponent/Footer1";
 
 function Cart() {
   const Navigate = useNavigate();
-  // const [count,setCount]=useState(0)
-  const [formData, setFormData] = useState({});
   const [cart, setCart] = useState([]);
   const id = localStorage.getItem("id");
-  console.log(id);
+
   const ProductData = async () => {
     const Respons = await axios.get(`http://localhost:4000/users/${id}`);
     const CartPage = Respons.data.cart;
     setCart(CartPage);
   };
+
   useEffect(() => {
     ProductData();
   }, []);
-  console.log(cart);
 
   const RemoveItem = async (ids) => {
     const dlt = cart.filter((item) => item.id !== ids);
@@ -34,6 +26,7 @@ function Cart() {
     toast.success("Item Removed");
     ProductData();
   };
+
   const increment = async (ide) => {
     const incrCart = cart.map((item) =>
       item.id === ide ? { ...item, qty: item.qty + 1 } : item
@@ -49,140 +42,94 @@ function Cart() {
     await axios.patch(`http://localhost:4000/users/${id}`, { cart: decreCart });
     ProductData();
   };
-  const sum=cart.reduce((acc,item)=>acc+item.price*item.qty,0)
+
+  const sum = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
 
   return (
     <div>
       <Navbar />
 
-      <div className="flex justify-around">
-        <div className=" flex justify-center flex-wrap   md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1  place-items-center w-[50%]  ">
-          {cart.map((item) => {
-            return (
-              <div className="p-2 m-5  bg-gray-100 mt-5 shadow-sm  cursor-pointer h-[450px] w-[500px] flex flex-col  rounded-lg">
-                <div className="overflow-hidden flex justify-center">
+      <div className="flex flex-col lg:flex-row justify-between px-4 lg:px-8 py-8 space-y-8 lg:space-y-0 lg:space-x-8">
+        {/* Cart Items */}
+        <div className="w-full lg:w-2/3 flex flex-col space-y-6">
+          {cart.length === 0 ? (
+            <p className="text-center text-lg text-gray-600">Your cart is empty.</p>
+          ) : (
+            cart.map((item) => (
+              <div
+                key={item.id}
+                className="p-4 bg-white shadow-md rounded-lg flex flex-col md:flex-row justify-between items-center"
+              >
+                <div className="md:w-1/3 flex justify-center md:justify-start">
                   <img
-                    // onClick={() => Navigate(`/detail/${item.id}`)}
-                    className=" object-cover duration-150 transition-all hover:scale-110 overflow-hidden 
-              h-[250px] w-[250px] rounded-lg
-              "
                     src={item.img}
-                    alt=""
+                    alt={item.name}
+                    className="h-[250px] w-[250px] object-cover rounded-lg transition-all duration-150 hover:scale-110"
                   />
                 </div>
-                <div className="flex flex-col gap-2 mt-2 ml-4 mr-4">
-                  <div className="font-bold "> {item.name}</div>
-                  <div className="flex justify-between">
-                    <div className=" font-bold text-gray-300">{item.brand}</div>
-                    <div className="text-black font-bold"> Price: {item.price}</div>
+
+                <div className="mt-4 md:mt-0 md:w-2/3 flex flex-col justify-between items-center md:items-start">
+                  <h2 className="text-xl font-semibold">{item.name}</h2>
+                  <p className="text-gray-500">{item.brand}</p>
+                  <div className="flex justify-between w-full mt-4">
+                    <p className="text-lg font-bold">Price: ${item.price}</p>
+                    <p className="text-lg font-bold">Quantity: {item.qty}</p>
                   </div>
-                  <div className="flex justify-between mt-20 mb-5 ">
 
-                    
-                    <button
-                      onClick={() => RemoveItem(item.id)}
-                      className="p-1 bg-black text-white rounded hover:bg-red-900"
-                    >
-                      Remove
-                    </button>
-                    
-                    <div className="flex   ">
-
-                    <h3 className="p-1">Qny:</h3>
+                  <div className="flex items-center space-x-2 mt-4">
                     <button
                       onClick={() => increment(item.id)}
-                      className="bg-black text-white hover:bg-green-700  rounded pl-2 pr-2 "
+                      className="bg-black text-white hover:bg-green-600 px-3 py-1 rounded"
                     >
                       +
                     </button>
-                    
-
-                    <h1 className="text-black  ml-2 mr-2">{item?.qty}</h1>
-
+                    <span className="px-3">{item.qty}</span>
                     <button
                       onClick={() => decrement(item.id)}
-                      className="bg-black text-white hover:bg-red-900  rounded pl-2 pr-2 "
+                      className="bg-black text-white hover:bg-red-600 px-3 py-1 rounded"
                     >
                       -
                     </button>
+                    <button
+                      onClick={() => RemoveItem(item.id)}
+                      className="bg-red-600 text-white hover:bg-red-700 px-3 py-1 rounded"
+                    >
+                      Remove
+                    </button>
                   </div>
-                  </div>
-
-                  
                 </div>
-
-                <div></div>
               </div>
-            );
-          })}
+            ))
+          )}
         </div>
 
-        {/* order summery */}
-        <div className="mt-4 flex justify-center w-[50%]">
-        <div className="border p-4 rounded shadow w-[50vw]">
-        <h2 className="text-lg font-bold mb-4">Order summary</h2>
+        {/* Order Summary */}
+        <div className="w-full lg:w-1/3 bg-white shadow-md rounded-lg p-6">
+          <h2 className="text-2xl font-bold mb-4">Order Summary</h2>
 
-         {cart.map((item)=>{
-            return(
-<div>
-            <div className="flex justify-between mb-4">
+          {cart.map((item) => (
+            <div key={item.id} className="flex justify-between mb-4">
               <div>
                 <p>{item.name}</p>
-                {/* <p> {item.price} </p> */}
               </div>
-              <img
-                src={item.img}
-                alt="Shoe"
-                width="50"
-              />
+              <img src={item.img} alt={item.name} className="w-16 h-16 object-cover rounded-lg" />
             </div>
+          ))}
 
-
-            <div className="flex justify-between">
-              <p>Price:</p>
-              <p> {item.price*item.qty} </p>
-            </div>
-
-            {/* <div className="flex justify-between">
-              <p>Shipping</p>
-              <p>
-                {formData.deliveryMethod === "standard" ? "$5.00" : "$16.00"}
-              </p>
-            </div>
-
-            <div className="flex justify-between">
-              <p>Taxes</p>
-              <p>$5.52</p>
-            </div> */}
-
-            <hr className="my-4" />
-           
-
-            </div>
-        
-            )
-         })}
-        
-        <div className="flex justify-between font-bold">
-         <p>Total</p>
-              <p>
-                $
-                {/* {formData.deliveryMethod === "standard"
-                  ? (64 + 5 + 5.52).toFixed(2)
-                  : (64 + 16 + 5.52).toFixed(2)} */}
-                  {sum}
-              </p>
-              </div>
-         
-      <button onClick={()=>Navigate('/payment',{state:{sum,cart}})} className="bg-black text-white hover:bg-white hover:text-black rounded p-1 mt-5 ">Proceed to Pay</button>
-
-         </div>
-         
+          <div className="flex justify-between font-semibold text-lg mb-4">
+            <p>Total:</p>
+            <p>${sum?.toFixed(2)}</p>
+          </div>
+          <button
+            onClick={() => Navigate("/payment", { state: { sum, cart } })}
+            className="w-full bg-black text-white hover:bg-gray-800 py-2 rounded-lg transition-colors duration-200"
+            >
+            Proceed to Pay
+          </button>
         </div>
-
       </div>
-      <Footer1/>
 
+      <Footer1 />
     </div>
   );
 }

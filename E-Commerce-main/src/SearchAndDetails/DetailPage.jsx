@@ -34,6 +34,7 @@ function DetailPage() {
                const res=await axios.patch(`http://localhost:4000/users/${ids}`,{cart:UpCart})
                toast.success('added to cart')
                console.log(res.data);
+             
             }
         }else{
             toast.warning("Please Singin!")

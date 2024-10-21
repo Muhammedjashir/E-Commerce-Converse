@@ -1,6 +1,12 @@
     {
     "users": [
-       
+        {
+        "name": "JsahirMhd",
+        "email": "jashirmhd71@gmail.com",
+        "password": "JashirT@2002",
+        "confirmPassword": "JashirT@2002",
+        "id": "5c5c"
+        }
     ],
         "datas":[
 

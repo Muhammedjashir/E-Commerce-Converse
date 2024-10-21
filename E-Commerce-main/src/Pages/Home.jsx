@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom'
+
 import { Context } from '../App';
 import Footer from '../FooterComponent/Footer';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
-  const Navigate=useNavigate()
+  const Navigate = useNavigate()
   const [data,setData]=useState([])
   const ProductData =async () => {
     const response = await axios.get("http://localhost:4000/datas")
@@ -55,7 +56,9 @@ console.log(data);
 
 <div className='p-2 bg-white mt-2 shadow-sm   cursor-pointer h-[350px] w-[300px] flex flex-col  rounded-lg'>
     <div className='overflow-hidden flex justify-center'>
-        <img onClick={()=>Navigate(`/detail/${item.id}`)} className=' object-cover duration-150 transition-all hover:scale-110 overflow-hidden 
+        <img onClick={()=>{
+          Navigate(`/detail/${item.id} `)
+        }} className=' object-cover duration-150 transition-all hover:scale-110 overflow-hidden 
         h-[250px] w-[250px] rounded-lg
         ' src={item.img} alt="" />
     </div>

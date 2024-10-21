@@ -7,10 +7,10 @@ import Footer1 from '../FooterComponent/Footer1';
 
 
 const Payment = () => {
-    const Navigat=useNavigate()
+    const Navigate=useNavigate()
     const Location=useLocation()
-    const {sum}=Location.state
-    const {cart}=Location.state
+    const sum=Location.state?.sum
+    const cart=Location.state?.cart
     const [pCart,setPCart]=useState([])
     const ids=localStorage.getItem("id")
   const [formData, setFormData] = useState({
@@ -53,7 +53,7 @@ console.log("e",e.target.name);
 
         toast.success('Payment Successfull')
         
-        Navigat("/orders")
+        Navigate("/orders")
     }else{
         toast.warning("Errorrrr!")
         
@@ -210,7 +210,7 @@ console.log(pCart);
         {/* Order Summary */}
         <div className="border p-4 rounded shadow">
         <h2 className="text-lg font-bold mb-4">Order summary</h2>
-        {cart.map((item)=>{
+        {cart?.map((item)=>{
                 return(
                     <div>   
             

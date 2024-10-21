@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../MainComponent/Navbar";
 import axios from "axios";
-import {
-  faFacebook,
-  faInstagram,
-  faTwitter,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
 import Footer1 from "../FooterComponent/Footer1";
 
 function Orders() {
@@ -17,90 +11,81 @@ function Orders() {
     const Response = await axios.get(`http://localhost:4000/users/${ids}`);
     setData(Response.data.Orders);
   };
+
   useEffect(() => {
     HandleOrder();
   }, []);
-  console.log(data, "ghewjauydG");
 
   return (
     <div>
       <Navbar />
 
-      {/* <h1 className='flex justify-center text-5xl mt-2'>Your Orders</h1> */}
+      <div className="container mx-auto p-4 bg-gray-100 mt-8 shadow-lg rounded-lg">
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h2 className="text-2xl font-bold mb-6 text-gray-800">
+            Order Summary
+          </h2>
 
-      <div className=" p-2 bg-gray-100 mt-2 shadow-sm  cursor-pointer h-[100%] w-[100%] flex flex-col rounded-lg">
-        <div className="border p-4 rounded shadow">
-          <h2 className=" font-bold mb-4 text-4xl mt-2">Order summary</h2>
-
-          <div className="">
-            {data.map((item) => {
-              return (
-                <div className="flex justify-between">
-                  <div>
-                    <h1>Email: {item.email}</h1>
-                    <h1>
-                      Name: {item.firstName} {item.lastName}{" "}
+          {data.length === 0 ? (
+            <p className="text-center text-gray-500">No orders found.</p>
+          ) : (
+            <div className="space-y-8">
+              {data.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 md:space-x-8 bg-gray-50 p-4 rounded-lg shadow-sm"
+                >
+                  {/* Customer Details */}
+                  <div className="space-y-2 text-gray-700">
+                    <h1 className="text-lg font-medium">Email: {item.email}</h1>
+                    <h1 className="text-lg font-medium">
+                      Name: {item.firstName} {item.lastName}
                     </h1>
-                    <h1>Address: {item.address} </h1>
-                    <h1>Number: {item.phone} </h1>
-                    <h1>Card Name: {item.nameOnCard} </h1>
-                    <h1>Card Number: {item.cardNumber} </h1>
+                    <h1 className="text-lg font-medium">
+                      Address: {item.address}
+                    </h1>
+                    <h1 className="text-lg font-medium">Phone: {item.phone}</h1>
+                    <h1 className="text-lg font-medium">
+                      Card Name: {item.nameOnCard}
+                    </h1>
+                    <h1 className="text-lg font-medium">
+                      Card Number: •••• •••• •••• {item.cardNumber.slice(-4)}
+                    </h1>
                   </div>
-                  <div>
-                    {item.orderItem.map((value) => {
-                      return (
-                        <div className="mt-0">
-                          <div className=" flex justify-center  h-[250px] w-[400px]  mt-0 mb-10 ">
-                            <img src={value.img} alt="" />
-                            
-                          </div>
-                        </div>
-                      );
-                    })}
+
+                  {/* Product Images */}
+                  <div className="flex flex-wrap justify-center items-center gap-4">
+                    {item.orderItem.map((value, idx) => (
+                      <div
+                        key={idx}
+                        className="flex flex-col items-center justify-center"
+                      >
+                        <img
+                          className="h-[200px] w-[200px] object-cover rounded-lg shadow-md"
+                          src={value.img}
+                          alt="Product"
+                        />
+                        <p className="mt-2 text-gray-600">
+                          {value.productName}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              );
-            })}
-            {/* <div className="flex justify-between mb-4">
-              <div>
+              ))}
+
+              <hr className="my-6" />
+
+              <div className="text-right text-lg font-semibold">
+                {/*  total calculation */}
                 <p></p>
-              </div> */}
-            {/* <img src={} alt="Basic Tee Black" width="50" /> */}
-            {/* </div> */}
-            {/* 
-            <div className="flex justify-between">
-              <p>Price:</p>
-              <p></p>
-            </div> */}
-
-            {/* <div className="flex justify-between">
-            <p>Shipping</p>
-            <p>{formData.deliveryMethod === 'standard' ? '$5.00' : '$16.00'}</p>
-          </div>
-
-          <div className="flex justify-between">
-            <p>Taxes</p>
-            <p>$5.52</p>
-          </div> */}
-
-            <hr className="my-4" />
-          </div>
-
-          <div className="flex justify-between font-bold">
-            {/* <p>Total</p> */}
-            <p>
-              {/* $ */}
-              {/* {formData.deliveryMethod === 'standard'
-                ? (64 + 5 + 5.52).toFixed(2)
-                : (64 + 16 + 5.52).toFixed(2)} */}
-                
-                
-            </p>
-          </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
-     <Footer1/>
+      <Footer1 />
     </div>
   );
 }

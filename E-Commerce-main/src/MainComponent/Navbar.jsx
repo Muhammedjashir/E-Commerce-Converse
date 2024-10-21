@@ -1,17 +1,21 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import { Badge, Button } from "@material-tailwind/react";
 
 const Navbar = () => {
+  const[cartCounts,setCartCount]=useState([])
+  const [input,setInput]=useState(" ")
   const Idee=localStorage.getItem("id")
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartItems,setCartItems]=useState(0)
   const Navigate=useNavigate()
   const[data,setData]=useState([])
   const OnChange =async (e)=> {
-    const Value=(e.target.value.toLowerCase())
+    const Value=(e.target.value.toLowerCase()) 
+    setInput(Value)
     const Response = await axios.get('http://localhost:4000/datas')
     setData (Response.data.filter((item)=> item.name.toLowerCase().includes(Value)))
     
@@ -24,10 +28,25 @@ const Navbar = () => {
     localStorage.clear("id")
   }
 
+const CartCount = async () =>{
+  const Res = await axios.get(`http://localhost:4000/users/${Idee}`)
+  setCartCount (Res.data.cart)
+  
+}
+useEffect(()=>{
+  CartCount()
+},[])
+
   return (
+    <>
+    
     <nav className=" sticky z-[1] w-[100%]  top-0 flex items-center justify-between flex-wrap bg-white py-0 lg:px-6 shadow border-solid border-t-2 border-gray-200 ">
       {/* Logo and Hamburger Men */}
+      
+
+      
       <div className="  flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 border-solid border-b-2 border-gray-300 pb-3 lg:pb-0">
+     
         <div className="  flex items-center flex-shrink-0 text-gray-900 mr-16 mb-9z" >
             <div>
             <img  className ='h-20' src="https://static.thenounproject.com/png/560147-200.png" alt="Shoes image " />
@@ -91,25 +110,39 @@ const Navbar = () => {
         </div>
 
         {/* Search Bar */}
+      
         <div className="relative mx-auto text-gray-300 lg:block hidden mr-3 ">
           <input
             className="  bg-black border-2 border-gray-950 h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none"
             type="search"
-            name="search"
+            // name="search"
             onChange={OnChange}
             placeholder="Search"
-              
+  
           />     
-         
-          {/* <div >
-            {
-            data.map((e)=>{
-              return(
-                <Link to='/product' ></Link>
-              )
-            })
-            }
-          </div> */}
+         {input?
+          
+          <div className='left-0 overflow-auto h-[400px] absolute w-[100%] top-[70px] z-50'>
+            {data.map((e)=>{
+            return(
+              <div className=' bg-white ' >
+                <div className='flex justify-between border  p-2'>
+                  
+                  <h1 className=''>
+                    {e.name}
+                  </h1>
+                  <div >
+                    <img src={e.img} alt="" className='w-20 h-14 object-fill' />
+                  </div>
+                </div>
+              </div>
+            )
+        
+          })}
+          </div>
+          :null}
+        
+       
           
           <button type="submit" className="absolute right-0 top-0 mt-3 mr-2">
             <svg
@@ -129,9 +162,11 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-      
+       
  {/* Cart Icon */}
  <div className="relative flex items-center ">
+ 
+   <Badge content={cartCounts.length}>
           <button
             onClick={()=>Navigate('/cart')} // Simulate adding to cart
             className="text-gray-600 hover:text-white px-4 py-2 rounded hover:bg-black"
@@ -142,9 +177,14 @@ const Navbar = () => {
                 {cartItems}
               </span>
             )}
+
           </button>
+        </Badge>
+       
         </div>
 
+        
+        
 
 
         {/* Sign In and Login */}
@@ -156,15 +196,18 @@ const Navbar = () => {
             
             </div> */}
           <div className=" block text-md px-4 ml-2 py-2 rounded text-gray-600 font-bold hover:text-white mt-4 hover:bg-black lg:mt-0"
->         {Idee? <button onClick={()=>{Navigate("/singin"),SingOut()}}>SING OUT</button>:<button onClick={()=>Navigate("/singin")}>SING IN</button>}
+>         {Idee? <button onClick={()=>{Navigate("/singin"),SingOut()}}>SIGN OUT</button>:<button onClick={()=>Navigate("/singin")}>SING IN</button>}
           
-          
-         
             
             </div>
         </div>
       </div>
     </nav>
+    
+
+   
+   
+  </>
   );
 };
 
