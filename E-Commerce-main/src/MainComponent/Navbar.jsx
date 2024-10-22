@@ -2,8 +2,17 @@ import React, { useEffect, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import { Badge, Button } from "@material-tailwind/react";
+// import {  Button } from "@material-tailwind/react";
+import {
+  Badge,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+  Button
+} from "@material-tailwind/react";
 
 const Navbar = () => {
   const[cartCounts,setCartCount]=useState([])
@@ -190,16 +199,30 @@ useEffect(()=>{
         {/* Sign In and Login */}
         
         <div className="flex cursor-pointer" >
+        
+        <Menu>
+      <MenuHandler>
+        
+        <FontAwesomeIcon  icon={faUser}  className="text-gray-500 text-3xl ml-4 hover:text-black" />
+
+      </MenuHandler>
+      <MenuList>
+        <MenuItem> <div className=" block text-md px-4 ml-2 py-2 rounded text-gray-600 font-bold hover:text-black mt-4lg:mt-0"
+>         {Idee? <button onClick={()=>{Navigate("/singin"),SingOut()}}>SIGN OUT</button>:<button onClick={()=>Navigate("/singin")}>SING IN</button> }
+           </div></MenuItem>
+        <MenuItem className='hover:text-black font-bold'>
+          Go to Admin page
+          </MenuItem>
+        {/* <MenuItem>Menu Item 3</MenuItem> */}
+      </MenuList>
+    </Menu>
           {/* <div className="block text-md px-4 py-2 rounded text-gray-600 ml-2 font-bold hover:text-white mt-4 hover:bg-black lg:mt-0"
 >
             <button onClick={()=>Navigate("/singup")}>SING UP</button>
             
             </div> */}
-          <div className=" block text-md px-4 ml-2 py-2 rounded text-gray-600 font-bold hover:text-white mt-4 hover:bg-black lg:mt-0"
->         {Idee? <button onClick={()=>{Navigate("/singin"),SingOut()}}>SIGN OUT</button>:<button onClick={()=>Navigate("/singin")}>SING IN</button>}
-          
-            
-            </div>
+           
+         
         </div>
       </div>
     </nav>

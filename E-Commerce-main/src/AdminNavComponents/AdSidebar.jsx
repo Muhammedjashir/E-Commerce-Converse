@@ -27,8 +27,11 @@ const AdSidebar = () => {
               className="flex items-center text-white hover:bg-gray-700 p-2 rounded-lg transition-all duration-200"
             >
               <FontAwesomeIcon icon={faChartLine} className="mr-3" />
-              {!isCollapsed && <span>Dashboard</span>}
+              {!isCollapsed && 
+              <h1> Dashboard </h1> }
+              
             </Link>
+            
           </li>
           <li>
             <Link
@@ -36,7 +39,8 @@ const AdSidebar = () => {
               className="flex items-center text-white hover:bg-gray-700 p-2 rounded-lg transition-all duration-200"
             >
               <FontAwesomeIcon icon={faUsers} className="mr-3" />
-              {!isCollapsed && <span>Manage Users</span>}
+              {!isCollapsed && 
+               <h1> Manage Users</h1> }
             </Link>
           </li>
           <li>
@@ -45,7 +49,8 @@ const AdSidebar = () => {
               className="flex items-center text-white hover:bg-gray-700 p-2 rounded-lg transition-all duration-200"
             >
               <FontAwesomeIcon icon={faBox} className="mr-3" />
-              {!isCollapsed && <span>Manage Products</span>}
+              {!isCollapsed && 
+              <h1> Manage Products</h1> }
             </Link>
           </li>
           <li>
@@ -54,7 +59,8 @@ const AdSidebar = () => {
               className="flex items-center text-white hover:bg-gray-700 p-2 rounded-lg transition-all duration-200"
             >
               <FontAwesomeIcon icon={faClipboardList} className="mr-3" />
-              {!isCollapsed && <span>Manage Orders</span>}
+              {!isCollapsed && 
+              <h1> Manage Orders</h1>  }
             </Link>
           </li>
         </ul>
@@ -62,7 +68,7 @@ const AdSidebar = () => {
 
       {/* Main Content Area */}
       <div className="flex-1 bg-gray-100 p-10">
-        <h1 className="text-3xl font-bold">Admin Panel Content</h1>
+        {/* <h1 className="text-3xl font-bold">Admin Panel Content</h1> */}
         {/* Here goes the main content of the admin dashboard */}
       </div>
     </div>
