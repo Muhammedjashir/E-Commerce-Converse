@@ -14,7 +14,7 @@ const AdSidebar = () => {
 
   return (
     <div className="flex">
-      {/* Sidebar */}
+      {/* Sidebar */ }
       <div className={`bg-gray-800 h-screen p-5 ${isCollapsed ? 'w-20' : 'w-64'} duration-300`}>
         {/* Toggle Button */}
         <div className="text-white text-2xl mb-6 cursor-pointer" onClick={toggleSidebar}>
