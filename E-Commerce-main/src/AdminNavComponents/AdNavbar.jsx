@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faBox, faPowerOff, faChartLine, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faUsers, faHouseChimney, faPowerOff, faChartLine, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const AdNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,16 +31,20 @@ const AdNavbar = () => {
         </div>
 
         {/* Admin Navigation Links */}
-        <div className={`lg:flex items-center space-x-6 ${isOpen ? 'block' : 'hidden'} lg:block`}>
-          <Link to="/admin/dashboard" className="text-white hover:bg-gray-700 p-2 rounded-lg">
+        <div className={`lg:flex items-center space-x-6 ${isOpen ? 'block' : 'hidden'} lg:block mr-10`}>
+          {/* <Link to="/admin/dashboard" className="text-white hover:bg-gray-700 p-2 rounded-lg">
             <FontAwesomeIcon icon={faChartLine} className="mr-2" /> Dashboard
           </Link>
+
           <Link to="/admin/users" className="text-white hover:bg-gray-700 p-2 rounded-lg">
             <FontAwesomeIcon icon={faUsers} className="mr-2" /> Manage Users
-          </Link>
-          <Link to="/admin/products" className="text-white hover:bg-gray-700 p-2 rounded-lg">
-            <FontAwesomeIcon icon={faBox} className="mr-2" /> Manage Products
-          </Link>
+          </Link> */}
+
+          <div to="/admin/products" className="text-white hover:bg-gray-700 p-2 rounded-lg">
+            <FontAwesomeIcon icon={faHouseChimney} className="mr-2" /> 
+            <button onClick={()=>Navigate('/admin')}>Home</button>
+            </div>
+
           <div className="text-white hover:bg-gray-700 p-2 rounded-lg">
             <FontAwesomeIcon  icon={faPowerOff} className="mr-2"  />    
             <button onClick={()=>Navigate('/')}>Singout</button>
