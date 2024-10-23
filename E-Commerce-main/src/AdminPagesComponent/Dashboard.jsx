@@ -2,16 +2,20 @@ import React from 'react'
 import AdNavbar from '../AdminNavComponents/AdNavbar'
 import AdSidebar from '../AdminNavComponents/AdSidebar'
 
-function ManageProducts() {
+function Dashboard() {
   return (
     <div>
         <div>
-            <AdNavbar/>
-            <AdSidebar/>
-        </div>
-      <h1>Manage products</h1>
+      <AdNavbar/>
+      <AdSidebar/>
+      </div>
+      <h1>Dashboard</h1>
+      <div>
+        
+      </div>
+      
     </div>
   )
 }
 
-export default ManageProducts
+export default Dashboard

@@ -6,7 +6,7 @@
       "email": "jashirmhd71@icloud.com",
       "password": "JashirT@2000",
       "cpassword": "JashirT@2000",
-      "Admin":true,
+      "Admin": true,
       "cart": [
         {
           "id": "24",
@@ -326,6 +326,24 @@
           ]
         }
       ]
+    },
+    {
+      "id": "88e7",
+      "username": "Raaaz123",
+      "email": "Raz123@gmail.com",
+      "password": "Apple@5c",
+      "cpassword": "Apple@5c",
+      "cart": [],
+      "Orders": []
+    },
+    {
+      "id": "f8a4",
+      "username": "JashirT",
+      "email": "jashirmhd71@gmail.com",
+      "password": "JashirT@2000",
+      "cpassword": "JashirT@2000",
+      "cart": [],
+      "Orders": []
     }
   ],
   "datas": [

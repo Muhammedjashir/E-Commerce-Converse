@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser  } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 // import {  Button } from "@material-tailwind/react";
 import {
@@ -13,11 +13,13 @@ import {
   MenuItem,
   Button
 } from "@material-tailwind/react";
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const[cartCounts,setCartCount]=useState([])
   const [input,setInput]=useState(" ")
   const Idee=localStorage.getItem("id")
+  const admin =localStorage.getItem('Admin')
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartItems,setCartItems]=useState(0)
   const Navigate=useNavigate()
@@ -35,6 +37,7 @@ const Navbar = () => {
 
   const SingOut = () =>{
     localStorage.clear("id")
+    Navigate('/signin')
   }
 
 const CartCount = async () =>{
@@ -208,11 +211,17 @@ useEffect(()=>{
       </MenuHandler>
       <MenuList>
         <MenuItem> <div className=" block text-md px-4 ml-2 py-2 rounded text-gray-600 font-bold hover:text-black mt-4lg:mt-0"
->         {Idee? <button onClick={()=>{Navigate("/singin"),SingOut()}}>SIGN OUT</button>:<button onClick={()=>Navigate("/singin")}>SING IN</button> }
+>         {Idee? <button onClick={()=>{Navigate("/singup"),SingOut()}}>SIGN OUT</button>:<button onClick={()=>Navigate("/singin")}>SING IN</button> }
            </div></MenuItem>
-        <MenuItem className='hover:text-black font-bold'>
-          Go to Admin page
-          </MenuItem>
+
+           {admin?<MenuItem onClick={()=>Navigate('/admin')} className='hover:text-black font-bold'>
+           {/* {toast.success("Admin Login Successfully")} */}
+          Go to Admin page 
+          
+           
+           </MenuItem>:null
+           }
+        
         {/* <MenuItem>Menu Item 3</MenuItem> */}
       </MenuList>
     </Menu>

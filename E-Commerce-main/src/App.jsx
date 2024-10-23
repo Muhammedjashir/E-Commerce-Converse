@@ -17,6 +17,10 @@ import Cart from "./SearchAndDetails/Cart";
 import Payment from "./SearchAndDetails/Payment"
 import Orders from "./SearchAndDetails/Orders"
 import AdminHome from "./Admin/AdminHome";
+import Dashboard from "./AdminPagesComponent/Dashboard";
+import ManageOrders from "./AdminPagesComponent/ManageOrders";
+import ManageProducts from "./AdminPagesComponent/ManageProducts";
+import ManageUsers from "./AdminPagesComponent/ManageUsers";
 export  const Context=createContext()
 function App() {
   
@@ -50,6 +54,7 @@ useEffect(()=>{
         <Route path="/cart" element={<Cart/>} />
         <Route path="/payment" element={<Payment/>}/>
         <Route path="/orders" element={<Orders/>}/>
+        
         {/* <Route path="/"
         element={
           <Routing>
@@ -61,8 +66,10 @@ useEffect(()=>{
         {/* Admin */}
 
        <Route path="/admin" element={<AdminHome/>}/>
-
-        
+       <Route path="/dashboard" element={<Dashboard/>}/>
+       <Route path="/manageorders" element={<ManageOrders/>}/>
+       <Route path="/manageproducts" element={<ManageProducts/>}/>
+       <Route path="/manageusers" element={<ManageUsers/>}/>
       </Routes>
       </Context.Provider>
 

@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faBox, faClipboardList, faChartLine, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { button } from '@material-tailwind/react';
 
 const AdSidebar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
+ const Navigate = useNavigate()
 
   return (
     <div className="flex">
@@ -22,46 +24,46 @@ const AdSidebar = () => {
         {/* Sidebar Links */}
         <ul className="space-y-4">
           <li>
-            <Link
+            <div
               to="/admin/dashboard"
               className="flex items-center text-white hover:bg-gray-700 p-2 rounded-lg transition-all duration-200"
             >
               <FontAwesomeIcon icon={faChartLine} className="mr-3" />
               {!isCollapsed && 
-              <h1> Dashboard </h1> }
-              
-            </Link>
+               <button onClick={()=>Navigate('/dashboard')}>Dashboard</button>  }
+              </div>
+            
             
           </li>
           <li>
-            <Link
+            <div
               to="/admin/users"
               className="flex items-center text-white hover:bg-gray-700 p-2 rounded-lg transition-all duration-200"
             >
               <FontAwesomeIcon icon={faUsers} className="mr-3" />
               {!isCollapsed && 
-               <h1> Manage Users</h1> }
-            </Link>
+               <button onClick={()=>Navigate('/manageusers')}>Manage Users</button>  }
+            </div>
           </li>
           <li>
-            <Link
+            <div
               to="/admin/products"
               className="flex items-center text-white hover:bg-gray-700 p-2 rounded-lg transition-all duration-200"
             >
               <FontAwesomeIcon icon={faBox} className="mr-3" />
               {!isCollapsed && 
-              <h1> Manage Products</h1> }
-            </Link>
+              <button onClick={()=>Navigate('/manageproducts')}>Manage Products </button> }
+            </div>
           </li>
           <li>
-            <Link
+            <div
               to="/admin/orders"
               className="flex items-center text-white hover:bg-gray-700 p-2 rounded-lg transition-all duration-200"
             >
-              <FontAwesomeIcon icon={faClipboardList} className="mr-3" />
+              <FontAwesomeIcon  icon={faClipboardList}  className="mr-3 " />
               {!isCollapsed && 
-              <h1> Manage Orders</h1>  }
-            </Link>
+              <button onClick={()=>Navigate('/manageorders')}>Manage Orders</button>   }
+            </div>
           </li>
         </ul>
       </div>
