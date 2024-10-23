@@ -14,7 +14,7 @@ const AdNavbar = () => {
   return (
     <nav className="bg-gray-800 p-4 ">
       <div className="flex items-center justify-between ">
-        {/* Admin Logo */}
+        {/* Admin Logo */ }
         <div className="text-white text-2xl font-bold mt-5 ml-5 ">
          <button onClick={()=>Navigate('/admin')}>Converse Admin</button> 
           
