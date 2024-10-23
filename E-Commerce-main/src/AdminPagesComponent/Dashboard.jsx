@@ -2,7 +2,7 @@ import React from 'react'
 import AdNavbar from '../AdminNavComponents/AdNavbar'
 import AdSidebar from '../AdminNavComponents/AdSidebar'
 
-function Dashboard() {
+function Dashboard()  {
   return (
     <div>
         <div>
