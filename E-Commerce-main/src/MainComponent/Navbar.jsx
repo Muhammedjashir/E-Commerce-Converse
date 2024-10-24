@@ -211,7 +211,7 @@ useEffect(()=>{
       </MenuHandler>
       <MenuList>
         <MenuItem> <div className=" block text-md px-4 ml-2 py-2 rounded text-gray-600 font-bold hover:text-black mt-4lg:mt-0"
->         {Idee? <button onClick={()=>{Navigate("/singup"),SingOut()}}>SIGN OUT</button>:<button onClick={()=>Navigate("/singin")}>SING IN</button> }
+>         {Idee? <button onClick={()=>{SingOut(),Navigate("/singin")}}>SIGN OUT</button>:<button onClick={()=>Navigate("/singup")}>SING IN</button> }
            </div></MenuItem>
 
            {admin?<MenuItem onClick={()=>Navigate('/admin')} className='hover:text-black font-bold'>

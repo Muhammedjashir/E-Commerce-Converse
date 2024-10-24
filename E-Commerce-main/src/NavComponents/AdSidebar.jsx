@@ -13,9 +13,9 @@ const AdSidebar = () => {
  const Navigate = useNavigate()
 
   return (
-    <div className="flex">
+    <div className=" ">
       {/* Sidebar */ }
-      <div className={`bg-gray-800 h-screen p-5 ${isCollapsed ? 'w-20' : 'w-64'} duration-300`}>
+      <div className={`bg-gray-800  h-screen p-5 ${isCollapsed ? 'w-20' : 'w-64'} duration-300`}>
         {/* Toggle Button */}
         <div className="text-white text-2xl mb-6 cursor-pointer" onClick={toggleSidebar}>
           <FontAwesomeIcon icon={isCollapsed ? faBars : faTimes} />
@@ -28,9 +28,9 @@ const AdSidebar = () => {
               to="/admin/dashboard"
               className="flex items-center text-white hover:bg-gray-700 p-2 rounded-lg transition-all duration-200"
             >
-              <FontAwesomeIcon icon={faChartLine} className="mr-3" />
+              <FontAwesomeIcon icon={faChartLine} className="mr-3"  />
               {!isCollapsed && 
-               <button onClick={()=>Navigate('/dashboard')}>Dashboard</button>  }
+               <button onClick={()=>Navigate('/admin')}>Dashboard</button>  }
               </div>
             
             

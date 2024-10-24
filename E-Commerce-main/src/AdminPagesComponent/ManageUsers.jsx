@@ -1,6 +1,6 @@
 import React from 'react'
-import AdNavbar from '../AdminNavComponents/AdNavbar'
-import AdSidebar from '../AdminNavComponents/AdSidebar'
+import AdNavbar from '../NavComponents/AdNavbar'
+import AdSidebar from '../NavComponents/AdSidebar'
 
 function ManageUsers() {
   return (

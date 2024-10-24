@@ -65,8 +65,8 @@ useEffect(()=>{
 
         {/* Admin */}
 
-       <Route path="/admin" element={<AdminHome/>}/>
-       <Route path="/dashboard" element={<Dashboard/>}/>
+       {/* <Route path="/admin" element={<AdminHome/>}/> */}
+       <Route path="/admin" element={<Dashboard/>}/>
        <Route path="/manageorders" element={<ManageOrders/>}/>
        <Route path="/manageproducts" element={<ManageProducts/>}/>
        <Route path="/manageusers" element={<ManageUsers/>}/>
