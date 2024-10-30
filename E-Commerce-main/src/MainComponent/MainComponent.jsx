@@ -8,11 +8,11 @@ import axios from 'axios'
 
 
 
-function MainComponent() {
+function MainComponent({setAdmin}) {
   
   return (
     <div>
-      <Navbar />
+      <Navbar setAdmin={setAdmin}/>
       <div>
 <Home/>
 

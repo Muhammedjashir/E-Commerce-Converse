@@ -31,7 +31,7 @@ const AdNavbar = () => {
         </div>
 
         {/* Admin Navigation Links */}
-        <div className={`lg:flex items-center space-x-6 ${isOpen ? 'block' : 'hidden'} lg:block mr-10`}>
+        <div className={`lg:flex items-center space-x-6 ${isOpen ? 'block' : 'hidden'} lg:block mr-10 mt-2`}>
           {/* <Link to="/admin/dashboard" className="text-white hover:bg-gray-700 p-2 rounded-lg">
             <FontAwesomeIcon icon={faChartLine} className="mr-2" /> Dashboard
           </Link>
@@ -47,7 +47,7 @@ const AdNavbar = () => {
 
           <div className="text-white hover:bg-gray-700 p-2 rounded-lg">
             <FontAwesomeIcon  icon={faPowerOff} className="mr-2"  />    
-            <button onClick={()=>Navigate('/')}>Singout</button>
+            <button onClick={()=>{Navigate('/'),localStorage.clear('Admin')}}>Singout</button>
             </div>
         </div>
       </div>

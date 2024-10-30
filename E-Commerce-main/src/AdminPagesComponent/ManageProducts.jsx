@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import AdNavbar from "../NavComponents/AdNavbar";
 import AdSidebar from "../NavComponents/AdSidebar";
 import axios from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function ManageProducts() {
+    const Location=useLocation()
+  const Navigate = useNavigate();
   const [product, setProduct] = useState([]);
   const ProductData = async () => {
     const Response = await axios.get("http://localhost:4000/datas");
@@ -14,10 +18,15 @@ function ManageProducts() {
     ProductData();
   }, []);
 
-  const RemoveItem = async (ide) =>{
-    
-    await axios.delete(`http://localhost:4000/datas/${ide}`)
-    ProductData()
+  const RemoveItem = async (ide) => {
+    await axios.delete(`http://localhost:4000/datas/${ide}`);
+    toast.success("Product Deleted");
+    ProductData();
+  };
+  const HandleEdit =async (val)=>{
+    await axios.get(`http://localhost:4000/datas/${val.id}`)
+    Navigate('/edititem',{state:{val}})
+
   }
 
   return (
@@ -43,28 +52,36 @@ function ManageProducts() {
                         h-[250px] w-[250px] rounded-lg.0
                         "
                       src={item.img}
-                      
                     />
                   </div>
                   <div className="flex flex-col gap-2 mt-2 ml-4 mr-4">
-                    <div className='font-bold '>    {item.name}</div>
+                    <div className="font-bold "> {item.name}</div>
                     <div className="flex justify-between">
-                      <div className=' font-bold text-gray-300'>{item.brand}</div>
-                        <div className='text-black font-bold'>  Price:  {item.price}</div>
-                        
+                      <div className=" font-bold text-gray-300">
+                        {item.brand}
+                      </div>
+                      <div className="text-black font-bold">
+                        {" "}
+                        Price: {item.price}
+                      </div>
                     </div>
                   </div>
                   {/* buttons */}
                   <div className="flex space-x-4 m-auto  w-full justify-center">
-                    <button onClick={()=>RemoveItem(item.id)} className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-all">
+                    <button
+                      onClick={() => RemoveItem(item.id)}
+                      className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-all"
+                    >
                       Delete
                     </button>
-                    <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-white hover:text-black transition-all">
-                      Add Item
+                    <button
+                      onClick={() => HandleEdit(item)}
+                      className="bg-black text-white px-4 py-2 rounded-md hover:bg-white hover:text-black transition-all"
+                    >
+                      Edit Item
                     </button>
                   </div>
                 </div>
-                
               );
             })}
           </div>

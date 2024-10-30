@@ -21,10 +21,13 @@ import Dashboard from "./AdminPagesComponent/Dashboard";
 import ManageOrders from "./AdminPagesComponent/ManageOrders";
 import ManageProducts from "./AdminPagesComponent/ManageProducts";
 import ManageUsers from "./AdminPagesComponent/ManageUsers";
+import EditItems from "./AdminPagesComponent/EditItems";
+import AddProducts from "./AdminPagesComponent/AddProducts";
 export  const Context=createContext()
 function App() {
   
   const [data,setData]=useState([])
+  const [admin,setAdmin]=useState(false)
   const ProductData =async () =>{
     const response = await axios.get("http://localhost:4000/datas")
     const PopularItems = response.data
@@ -36,13 +39,32 @@ useEffect(()=>{
   ProductData()
   
 },[])
+useEffect(()=>{
+  if(localStorage.getItem('Admin'))
+    setAdmin(true)
+})
   return (
     <div>
       
         <ToastContainer/>
       <Context.Provider value={{data}}>
+       {admin &&(
+        <Routes>
+           {/* Admin */}
+
+       {/* <Route path="/admin" element={<AdminHome/>}/> */}
+       <Route path="/admin" element={<Dashboard/>}/>
+       <Route path="/manageorders" element={<ManageOrders/>}/>
+       <Route path="/manageproducts" element={<ManageProducts/>}/>
+       <Route path="/manageusers" element={<ManageUsers/>}/>
+       <Route path="/edititem" element={<EditItems/>}/>
+       <Route path="/addproduct" element={<AddProducts/>}/>
+       </Routes>
+       )}
+
       <Routes>
-        <Route path="/" element={<MainComponent />} />
+
+        <Route path="/" element={<MainComponent setAdmin={setAdmin} />} />
         <Route path="/singup" element={<Singup />} />
         <Route path="/singin" element={<Singin />} />
         <Route path="*" element={<PageNotfound/>} /> 
@@ -55,21 +77,9 @@ useEffect(()=>{
         <Route path="/payment" element={<Payment/>}/>
         <Route path="/orders" element={<Orders/>}/>
         
-        {/* <Route path="/"
-        element={
-          <Routing>
-            <Navigator/>
-          </Routing>
-        } */}
 
 
-        {/* Admin */}
-
-       {/* <Route path="/admin" element={<AdminHome/>}/> */}
-       <Route path="/admin" element={<Dashboard/>}/>
-       <Route path="/manageorders" element={<ManageOrders/>}/>
-       <Route path="/manageproducts" element={<ManageProducts/>}/>
-       <Route path="/manageusers" element={<ManageUsers/>}/>
+       
       </Routes>
       </Context.Provider>
 

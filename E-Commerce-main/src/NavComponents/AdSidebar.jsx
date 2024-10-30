@@ -57,12 +57,23 @@ const AdSidebar = () => {
           </li>
           <li>
             <div
+              to="/admin/products"
+              className="flex items-center text-white hover:bg-gray-700 p-2 rounded-lg transition-all duration-200"
+            >
+              <FontAwesomeIcon icon={faBox} className="mr-3" />
+              {!isCollapsed && 
+              <button onClick={()=>Navigate('/addproduct')}>Add Products </button> }
+            </div>
+          </li>
+          
+          <li>
+            <div
               to="/admin/orders"
               className="flex items-center text-white hover:bg-gray-700 p-2 rounded-lg transition-all duration-200"
             >
               <FontAwesomeIcon  icon={faClipboardList}  className="mr-3 " />
               {!isCollapsed && 
-              <button onClick={()=>Navigate('/manageorders')}>Manage Orders</button>   }
+              <button onClick={()=>Navigate('/manageorders')}>All Orders</button>   }
             </div>
           </li>
         </ul>

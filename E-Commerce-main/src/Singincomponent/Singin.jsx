@@ -30,8 +30,13 @@ function Singin() {
           }else if(find_user.Admin==true){
             localStorage.setItem('Admin',find_user.id)
              navigate('/admin')
-             toast.success("Admin Login succesfully")
-          } else{
+            return toast.success("Admin Login succesfully")
+             
+          }
+          else if(find_user.Block===true){
+            toast.warning('User already blocked please Create a new Account')
+
+          }else{
             localStorage.setItem('id',find_user.id)
             toast.success("singin succesfully")
             navigate('/')

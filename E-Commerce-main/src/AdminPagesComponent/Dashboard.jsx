@@ -3,7 +3,9 @@ import AdNavbar from "../NavComponents/AdNavbar";
 import AdSidebar from "../NavComponents/AdSidebar";
 import axios from "axios";
 
+
 function Dashboard() {
+    
   const [user, setUser] = useState([]);
   const [product, setProduct] = useState([]);
   const UserCount = user.length;
@@ -63,14 +65,14 @@ function Dashboard() {
               <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6 rounded-lg hover:shadow-xl transition-shadow duration-300">
                 <h3 className="font-bold text-lg">Total Users</h3>
                 <p className="text-4xl font-bold mt-2">{UserCount}</p>
-                <p className="text-sm mt-1">Recent: mck696</p>
+                {/* <p className="text-sm mt-1">Recent: mck696</p> */}
               </div>
 
               {/* Total Products Card */}
               <div className="bg-gradient-to-r from-green-600 to-teal-600 text-white p-6 rounded-lg hover:shadow-xl transition-shadow duration-300">
                 <h3 className="font-bold text-lg">Total Products</h3>
                 <p className="text-4xl font-bold mt-2">{ProductCount}</p>
-                <p className="text-sm mt-1">Recent: buby T-shirt</p>
+                {/* <p className="text-sm mt-1">Recent: buby T-shirt</p> */}
               </div>
 
               {/* Total Orders Card */}
@@ -80,7 +82,7 @@ function Dashboard() {
                   {/* Assuming you're fetching the total order count correctly */}
                   {user.reduce((acc, curr) => acc + (curr?.Orders?.length || 0), 0)}
                 </p>
-                <p className="text-sm mt-1">Last order: buby T-shirt</p>
+                {/* <p className="text-sm mt-1">Last order: buby T-shirt</p> */}
               </div>
             </div>
 
