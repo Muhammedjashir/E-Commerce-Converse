@@ -14,7 +14,7 @@ function ManageProducts() {
     const Datas = Response.data;
     setProduct(Datas);
   };
-  useEffect(() => {
+  useEffect(()=> {
     ProductData();
   }, []);
 
