@@ -101,7 +101,7 @@ export default function ManageUserPage() {
                     <TableCell className="flex justify-center space-x-2">
                       <IconButton
                         color="info"
-                        onClick={() => handleOpenDetailDialog(item)}
+                        onClick={()=> handleOpenDetailDialog(item)}
                       >
                         <Visibility />
                       </IconButton>
