@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function ManageProducts() {
-    const Location=useLocation()
+  const Location = useLocation();
   const Navigate = useNavigate();
   const [product, setProduct] = useState([]);
   const ProductData = async () => {
@@ -23,11 +23,10 @@ function ManageProducts() {
     toast.success("Product Deleted");
     ProductData();
   };
-  const HandleEdit =async (val)=>{
-    await axios.get(`http://localhost:4000/datas/${val.id}`)
-    Navigate('/edititem',{state:{val}})
-
-  }
+  const HandleEdit = async (val) => {
+    await axios.get(`http://localhost:4000/datas/${val.id}`);
+    Navigate("/edititem", { state: { val } });
+  };
 
   return (
     <div>

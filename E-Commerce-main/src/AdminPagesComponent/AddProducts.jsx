@@ -10,10 +10,9 @@ function AddProducts() {
     brand: "",
     category: "",
     quantity: 1,
-    price: 0, 
+    price: 0,
     img: "",
   });
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,18 +23,18 @@ function AddProducts() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     const Response = await axios.get("http://localhost:4000/datas");
     const dataas = Response.data.find((item) => item.name === formData.name);
-    
+
     if (dataas) {
-      toast.warning('The product name already exists');
+      toast.warning("The product name already exists");
     } else {
       const newProduct = { ...formData };
       await axios.post("http://localhost:4000/datas", newProduct);
       toast.success("Product added successfully");
-     
+
       setFormData({
         name: "",
         brand: "",
@@ -60,7 +59,10 @@ function AddProducts() {
             <h2 className="text-2xl font-bold mb-6">Add Product</h2>
 
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="name"
+              >
                 Product Name
               </label>
               <input
@@ -73,7 +75,10 @@ function AddProducts() {
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="brand">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="brand"
+              >
                 Brand
               </label>
               <input
@@ -86,7 +91,10 @@ function AddProducts() {
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="category">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="category"
+              >
                 Category
               </label>
               <input
@@ -99,7 +107,10 @@ function AddProducts() {
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="quantity">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="quantity"
+              >
                 Quantity
               </label>
               <input
@@ -112,7 +123,10 @@ function AddProducts() {
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="price"
+              >
                 Price
               </label>
               <input
@@ -125,7 +139,10 @@ function AddProducts() {
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="img">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="img"
+              >
                 Image URL
               </label>
               <input
@@ -138,7 +155,7 @@ function AddProducts() {
             </div>
 
             <div className="flex items-center justify-between">
-              <button 
+              <button
                 type="submit"
                 className="bg-black text-white hover:bg-white hover:text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-10"
               >

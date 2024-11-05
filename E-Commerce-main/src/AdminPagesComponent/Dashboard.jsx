@@ -3,9 +3,7 @@ import AdNavbar from "../NavComponents/AdNavbar";
 import AdSidebar from "../NavComponents/AdSidebar";
 import axios from "axios";
 
-
 function Dashboard() {
-    
   const [user, setUser] = useState([]);
   const [product, setProduct] = useState([]);
   const UserCount = user.length;
@@ -56,7 +54,7 @@ function Dashboard() {
 
         {/* Main Dashboard */}
         <div className="flex flex-col justify-center w-full h-full p-4 overflow-auto">
-          <div className="bg-white shadow-lg rounded-lg p-6  w-full">
+           <div className="bg-white shadow-lg rounded-lg p-6  w-full">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Dashboard Overview
             </h2>
@@ -80,9 +78,12 @@ function Dashboard() {
                 <h3 className="font-bold text-lg">Total Orders</h3>
                 <p className="text-4xl font-bold mt-2">
                   {/* Assuming you're fetching the total order count correctly */}
-                  {user.reduce((acc, curr) => acc + (curr?.Orders?.length || 0), 0)}
+                  {user.reduce(
+                    (acc, curr) => acc + (curr?.Orders?.length || 0),
+                    0
+                  )}
                 </p>
-                {/* <p className="text-sm mt-1">Last order: buby T-shirt</p> */}
+               
               </div>
             </div>
 
@@ -102,7 +103,7 @@ function Dashboard() {
                   View Orders
                 </button>
               </div>
-            </div> */}
+            // </div> */}
           </div>
         </div>
       </div>

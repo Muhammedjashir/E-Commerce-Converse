@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {  useLocation,  useNavigate,  useParams } from "react-router-dom"; 
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import AdNavbar from "../NavComponents/AdNavbar";
 import AdSidebar from "../NavComponents/AdSidebar";
 
 function EditItems() {
-    const Location = useLocation()
-    const product =Location.state?.val
-    // const idee = product.id
-  const { id } = useParams(); 
-  const Navigate = useNavigate(); 
+  const Location = useLocation();
+  const product = Location.state?.val;
+  // const idee = product.id
+  const { id } = useParams();
+  const Navigate = useNavigate();
 
-  console.log(product)
-
+  console.log(product);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -33,7 +32,7 @@ function EditItems() {
           brand: product.brand,
           category: product.category,
           price: product.price,
-          ids:product.id,
+          ids: product.id,
           img: product.img,
         });
       } catch (error) {
@@ -52,17 +51,15 @@ function EditItems() {
     });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       await axios.put(`http://localhost:4000/datas/${formData.ids}`, formData);
-     Navigate('/manageproducts') // Redirect to manage products page after successful update
+      Navigate("/manageproducts"); // Redirect to manage products page after successful update
     } catch (error) {
       console.error("Error updating product:", error);
     }
-
   };
 
   return (
@@ -121,7 +118,7 @@ function EditItems() {
                 </label>
                 <input
                   type="text"
-                  name="category" 
+                  name="category"
                   value={formData.category}
                   onChange={handleChange}
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -161,8 +158,7 @@ function EditItems() {
               </div>
 
               <div className="flex items-center justify-between">
-                <button 
-                
+                <button
                   type="submit"
                   className="bg-black text-white hover:bg-white hover:text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 >

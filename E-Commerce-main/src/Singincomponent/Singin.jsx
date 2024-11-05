@@ -30,7 +30,7 @@ function Singin() {
           }else if(find_user.Admin==true){
             localStorage.setItem('Admin',find_user.id)
              navigate('/admin')
-            return toast.success("Admin Login succesfully")
+             toast.success("Admin Login succesfully")
              
           }
           else if(find_user.Block===true){

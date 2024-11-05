@@ -47,7 +47,7 @@ useEffect(()=>{
     <div>
       
         <ToastContainer/>
-      <Context.Provider value={{data}}>
+      <Context.Provider value={{data}}>        
        {admin &&(
         <Routes>
            {/* Admin */}
@@ -67,7 +67,6 @@ useEffect(()=>{
         <Route path="/" element={<MainComponent setAdmin={setAdmin} />} />
         <Route path="/singup" element={<Singup />} />
         <Route path="/singin" element={<Singin />} />
-        <Route path="*" element={<PageNotfound/>} /> 
         <Route path="/product" element={<Products/>} />
         <Route path="/men" element={<Men/>} />
         <Route path="/kids" element={<Kids/>}/>
@@ -82,6 +81,10 @@ useEffect(()=>{
        
       </Routes>
       </Context.Provider>
+
+      {/* <Routes>
+      <Route path="*" element={<PageNotfound/>} /> 
+      </Routes> */}
 
 
     </div>
