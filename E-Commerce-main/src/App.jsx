@@ -29,7 +29,7 @@ function App() {
   const [data,setData]=useState([])
   const [admin,setAdmin]=useState(false)
   const ProductData =async () =>{
-    const response = await axios.get("http://localhost:4000/datas")
+    const response = await axios.get("http://localhost:4500/datas")
     const PopularItems = response.data
   setData(PopularItems)
   

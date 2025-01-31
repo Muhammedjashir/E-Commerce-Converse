@@ -11,7 +11,7 @@ function Cart() {
   const id = localStorage.getItem("id");
 
   const ProductData = async () => {
-    const Respons = await axios.get(`http://localhost:4000/users/${id}`);
+    const Respons = await axios.get(`http://localhost:4500/users/${id}`);
     const CartPage = Respons.data.cart;
     setCart(CartPage);
   };
@@ -22,7 +22,7 @@ function Cart() {
 
   const RemoveItem = async (ids) => {
     const dlt = cart.filter((item) => item.id !== ids);
-    await axios.patch(`http://localhost:4000/users/${id}`, { cart: dlt });
+    await axios.patch(`http://localhost:4500/users/${id}`, { cart: dlt });
     toast.success("Item Removed");
     ProductData();
   };
@@ -31,7 +31,7 @@ function Cart() {
     const incrCart = cart.map((item) =>
       item.id === ide ? { ...item, qty: item.qty + 1 } : item
     );
-    await axios.patch(`http://localhost:4000/users/${id}`, { cart: incrCart });
+    await axios.patch(`http://localhost:4500/users/${id}`, { cart: incrCart });
     ProductData();
   };
 
@@ -39,7 +39,7 @@ function Cart() {
     const decreCart = cart.map((item) =>
       item.id === ide ? { ...item, qty: item.qty - 1 } : item
     );
-    await axios.patch(`http://localhost:4000/users/${id}`, { cart: decreCart });
+    await axios.patch(`http://localhost:4500/users/${id}`, { cart: decreCart });
     ProductData();
   };
 

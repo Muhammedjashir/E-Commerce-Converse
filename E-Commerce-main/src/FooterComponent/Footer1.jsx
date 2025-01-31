@@ -56,10 +56,10 @@ function Footer1() {
       <div className="mt-10 text-center">
         <h3 className="font-bold text-lg mb-4">Accepted Payment Methods</h3>
         <div className="flex justify-center gap-4">
-          <img src="https://image.similarpng.com/very-thumbnail/2020/06/Logo-VISA-transparent-PNG.png" alt="Visa" className="w-10" />
+          <img src="https://cdn4.iconfinder.com/data/icons/payment-method/160/payment_method_card_visa-512.png" alt="Visa" className="w-10" />
           <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Rupay-Logo.png" alt="RuPay" className="w-12 ml-0" />
           <img src="https://e7.pngegg.com/pngimages/530/165/png-clipart-logo-mastercard-pentagram-flat-design-brand-mastercard-text-trademark.png" alt="MasterCard" className="w-12 " />
-          <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/upi_logo_icon_169316.png" alt="UPI" className="w-12" />
+          <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/upi-icon.png" alt="UPI" className="w-12" />
         </div>
       </div>
     </footer>

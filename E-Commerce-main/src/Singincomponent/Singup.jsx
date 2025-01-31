@@ -37,12 +37,10 @@ function Signup() {
       ...formData,
       cart:[],
       Orders:[]
-
-
     }
     
     axios
-      .post('http://localhost:4000/users', NewUser) 
+      .post('http://localhost:4500/users', NewUser) 
       .then((response) => {
         console.log('Signup Success:', response.data);
         toast.success('Signup successful! Please Singin.');

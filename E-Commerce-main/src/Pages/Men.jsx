@@ -9,7 +9,7 @@ function Men() {
   const Navigate = useNavigate();
   const [data, setData] = useState([]);
   const ProductDate = async () => {
-    const Response = await axios.get("http://localhost:4000/datas");
+    const Response = await axios.get("http://localhost:4500/datas");
     const Menproduct = Response.data.filter((item) => item.category === "men");
     setData(Menproduct);
   };

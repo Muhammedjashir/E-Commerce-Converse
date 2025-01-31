@@ -27,7 +27,7 @@ export default function ManageUserPage() {
 
   const UserData = async () => {
     try {
-      const Response = await axios.get(`http://localhost:4000/users`);
+      const Response = await axios.get(`http://localhost:4500/users`);
       const datas = Response.data;
       const nonAdminUsers = datas.filter((user) => !user.Admin);
       setUsers(nonAdminUsers);
@@ -41,9 +41,9 @@ export default function ManageUserPage() {
   }, []);
 
   const BlockUser = async (id) => {
-    const Res = await axios.get(`http://localhost:4000/users/${id}`);
+    const Res = await axios.get(`http://localhost:4500/users/${id}`);
     const Dataas = Res.data.Block === false;
-    await axios.patch(`http://localhost:4000/users/${id}`, { Block: Dataas });
+    await axios.patch(`http://localhost:4500/users/${id}`, { Block: Dataas });
   };
 
   const handleOpenDetailDialog = (user) => {

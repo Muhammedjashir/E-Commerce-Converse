@@ -8,11 +8,11 @@ import Footer1 from '../FooterComponent/Footer1';
 function DetailPage() {
     const Navigate=useNavigate()
     const {id}=useParams()
-    console.log(id);
+    // console.log(id);
     const [data,setData]=useState([])
     const ids =localStorage.getItem("id")
     const ProductData = async ()=>{
-        const Response = await axios.get("http://localhost:4000/datas")
+        const Response = await axios.get("http://localhost:4500/datas")
         const DetailPage=Response.data.filter((item)=>item.id===id)
         console.log(DetailPage);
         setData(DetailPage)
@@ -24,14 +24,14 @@ function DetailPage() {
     const AddtoCart = async (data)=> {
         if(ids){
  
-            const Res = await axios.get(`http://localhost:4000/users/${ids}`)
+            const Res = await axios.get(`http://localhost:4500/users/${ids}`)
             const UserCart = Res.data.cart
             const CheckData  =  UserCart.find((item)=>item.id===data.id)
             if(CheckData){
                 toast.warning('Product already exist')
-            }else{
+            }else{      
                 const UpCart=[...UserCart,data]
-               const res=await axios.patch(`http://localhost:4000/users/${ids}`,{cart:UpCart})
+               const res=await axios.patch(`http://localhost:4500/users/${ids}`,{cart:UpCart})
                toast.success('added to cart')
                console.log(res.data);
              

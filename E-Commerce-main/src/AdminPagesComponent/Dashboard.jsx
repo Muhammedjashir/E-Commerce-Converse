@@ -11,7 +11,7 @@ function Dashboard() {
 
   const UserData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/users");
+      const response = await axios.get("http://localhost:4500/users");
       const data = response.data;
 
       let orderCount = 0;
@@ -29,7 +29,7 @@ function Dashboard() {
 
   const ProductData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/datas");
+      const response = await axios.get("http://localhost:4500/datas");
       setProduct(response.data);
     } catch (error) {
       console.log("Error fetching products:", error);

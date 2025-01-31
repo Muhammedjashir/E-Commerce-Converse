@@ -8,7 +8,7 @@ function Orders() {
   const [data, setData] = useState([]);
 
   const HandleOrder = async () => {
-    const Response = await axios.get(`http://localhost:4000/users/${ids}`);
+    const Response = await axios.get(`http://localhost:4500/users/${ids}`);
     setData(Response.data.Orders);
   };
 

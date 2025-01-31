@@ -39,7 +39,7 @@ console.log("e",e.target.name);
     console.log('Form Data Submitted: ', formData);
 
     //  form validation 
-    const Response = await axios.get(`http://localhost:4000/users/${ids}`)
+    const Response = await axios.get(`http://localhost:4500/users/${ids}`)
     console.log(Response.data);
     console.log(formData);
     const Order=Response.data.Orders
@@ -49,7 +49,7 @@ console.log("e",e.target.name);
 
 
     if(orderr){
-       await axios.patch(`http://localhost:4000/users/${ids}`,{Orders:orderr})
+       await axios.patch(`http://localhost:4500/users/${ids}`,{Orders:orderr})
 
         toast.success('Payment Successfull')
         

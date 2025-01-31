@@ -10,7 +10,7 @@ function ManageProducts() {
   const Navigate = useNavigate();
   const [product, setProduct] = useState([]);
   const ProductData = async () => {
-    const Response = await axios.get("http://localhost:4000/datas");
+    const Response = await axios.get("http://localhost:4500/datas");
     const Datas = Response.data;
     setProduct(Datas);
   };
@@ -19,12 +19,12 @@ function ManageProducts() {
   }, []);
 
   const RemoveItem = async (ide) => {
-    await axios.delete(`http://localhost:4000/datas/${ide}`);
+    await axios.delete(`http://localhost:4500/datas/${ide}`);
     toast.success("Product Deleted");
     ProductData();
   };
   const HandleEdit = async (val) => {
-    await axios.get(`http://localhost:4000/datas/${val.id}`);
+    await axios.get(`http://localhost:4500/datas/${val.id}`);
     Navigate("/edititem", { state: { val } });
   };
 

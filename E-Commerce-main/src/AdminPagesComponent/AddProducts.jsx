@@ -25,14 +25,14 @@ function AddProducts() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const Response = await axios.get("http://localhost:4000/datas");
+    const Response = await axios.get("http://localhost:4500/datas");
     const dataas = Response.data.find((item) => item.name === formData.name);
 
     if (dataas) {
       toast.warning("The product name already exists");
     } else {
       const newProduct = { ...formData };
-      await axios.post("http://localhost:4000/datas", newProduct);
+      await axios.post("http://localhost:4500/datas", newProduct);
       toast.success("Product added successfully");
 
       setFormData({

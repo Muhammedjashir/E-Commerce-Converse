@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
+import {  faUser } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -14,7 +14,7 @@ import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-const StyledBadge = styled(Badge)(({ theme }) => ({
+const StyledBadge = styled(Badge)(({ theme }) =>({
   "& .MuiBadge-badge": {
     right: -3,
     top: 13,
@@ -23,7 +23,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-const Navbar = ({ setAdmin }) => {
+const Navbar = ({ setAdmin }) =>  {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -44,14 +44,13 @@ const Navbar = ({ setAdmin }) => {
   const Idee = localStorage.getItem("id");
   const admin = localStorage.getItem("Admin");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [cartItems, setCartItems] = useState(0);
   const Navigate = useNavigate();
   const [data, setData] = useState([]);
 
   const OnChange = async (e) => {
     const Value = e.target.value.toLowerCase();
     setInput(Value);
-    const Response = await axios.get("http://localhost:4000/datas");
+    const Response = await axios.get("http://localhost:4500/datas");
     setData(
       Response.data.filter((item) => item.name.toLowerCase().includes(Value))
     );
@@ -63,7 +62,7 @@ const Navbar = ({ setAdmin }) => {
   };
 
   const CartCount = async () => {
-    const Res = await axios.get(`http://localhost:4000/users/${Idee}`);
+    const Res = await axios.get(`http://localhost:4500/users/${Idee}`);
     setCartCount(Res.data.cart);
   };
 

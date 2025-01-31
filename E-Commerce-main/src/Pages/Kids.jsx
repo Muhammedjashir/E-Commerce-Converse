@@ -8,7 +8,7 @@ function Kids() {
   const Navigate=useNavigate()
     const [data,setData]=useState([])
     const ProductData =async ()=>{
-    const Response = await axios.get("http://localhost:4000/datas")
+    const Response = await axios.get("http://localhost:4500/datas")
     const Kidsproduct = Response.data.filter((item)=>item.category==='kids')
     setData(Kidsproduct)
 }

@@ -25,7 +25,7 @@ function EditItems() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        // const response = await axios.get(`http://localhost:4000/datas/${id}`);
+        // const response = await axios.get(`http://localhost:4500/datas/${id}`);
         // const product = response.data;
         setFormData({
           name: product.name,
@@ -55,7 +55,7 @@ function EditItems() {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:4000/datas/${formData.ids}`, formData);
+      await axios.put(`http://localhost:4500/datas/${formData.ids}`, formData);
       Navigate("/manageproducts"); // Redirect to manage products page after successful update
     } catch (error) {
       console.error("Error updating product:", error);

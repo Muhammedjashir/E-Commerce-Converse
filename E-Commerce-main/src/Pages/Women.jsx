@@ -9,7 +9,7 @@ function Women() {
   const Navigate=useNavigate()
     const [data,setData]=useState([])
     const ProductData = async ()=>{
-        const Response = await axios.get("http://localhost:4000/datas")
+        const Response = await axios.get("http://localhost:4500/datas")
         const WomenProduct = Response.data.filter((item)=>item.category==='women')
         setData(WomenProduct)
     }

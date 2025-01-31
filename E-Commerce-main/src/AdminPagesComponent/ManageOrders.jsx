@@ -18,7 +18,7 @@ function ManageOrders() {
 
   const OrderDatas = async ()=> {
     try {
-      const response = await axios.get("http://localhost:4000/users");
+      const response = await axios.get("http://localhost:4500/users");
       const orders = response.data;
       setOrder(orders);
     } catch (error) {
